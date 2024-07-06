@@ -125,3 +125,12 @@ footer {
 .project-link:visited {
     color: #000000; /* Set text color for visited links */
 }
+
+.about-card {
+    background-color: #f9f9f9;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
