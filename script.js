@@ -1,3 +1,5 @@
+//script for animated tiles
+
 let currentIndex = 0;
 
 document.getElementById('next').addEventListener('click', () => {

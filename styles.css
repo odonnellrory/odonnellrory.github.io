@@ -24,13 +24,13 @@ header {
 .navbar {
     display: flex;
     justify-content: center;
-    padding: 1rem;
+    padding: 0rem;
 }
 
 .nav-list {
     list-style: none;
     display: flex;
-    gap: 2rem;
+    gap: 3rem;
 }
 
 .nav-list li a {
@@ -46,7 +46,7 @@ header {
 
 main {
     flex: 1;
-    padding-top: 70px; /* Adjusted padding to ensure space for the fixed header */
+    padding-top: 70px; 
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
@@ -90,10 +90,38 @@ main {
 
 footer {
     text-align: center;
-    padding: 1rem 0;
+    padding: 0rem;
     background: #333;
     color: white;
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+.project-card {
+    background-color: #f9f9f9;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+}
+
+
+.project-card p {
+    margin-bottom: 10px;
+}
+
+.project-link {
+    text-decoration: none; /* Remove underline from the link */
+    color: #000; /* Set default text color for links */
+}
+
+.project-link:visited {
+    color: #000000; /* Set text color for visited links */
 }
