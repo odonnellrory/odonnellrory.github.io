@@ -1,24 +1,21 @@
-//script for animated tiles
+function sortProjects(order) {
+    const projectsContainer = document.getElementById('projects');
+    const projectCards = Array.from(projectsContainer.querySelectorAll('.project-card'));
 
-let currentIndex = 0;
+    projectCards.sort((card1, card2) => {
+        const order1 = parseInt(card1.dataset.order);
+        const order2 = parseInt(card2.dataset.order);
 
-document.getElementById('next').addEventListener('click', () => {
-    const slides = document.querySelector('.slides');
-    const slideWidth = document.querySelector('.slide').offsetWidth;
-    const totalSlides = document.querySelectorAll('.slide').length;
+        if (order === 'asc') {
+            return order1 - order2;
+        } else if (order === 'desc') {
+            return order2 - order1;
+        }
+    });
 
-    if (currentIndex < totalSlides - 1) {
-        currentIndex++;
-        slides.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
-    }
-});
+    // Detach all project cards from the container
+    projectCards.forEach(card => projectsContainer.removeChild(card));
 
-document.getElementById('prev').addEventListener('click', () => {
-    const slides = document.querySelector('.slides');
-    const slideWidth = document.querySelector('.slide').offsetWidth;
-
-    if (currentIndex > 0) {
-        currentIndex--;
-        slides.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
-    }
-});
+    // Reattach sorted project cards to the container
+    projectCards.forEach(card => projectsContainer.appendChild(card));
+}

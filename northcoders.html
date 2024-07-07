@@ -18,23 +18,31 @@
             </ul>
         </nav>
     </header>
+    
+    <section class="sort-buttons">
+        <select id="sort-projects" onchange="sortProjects(this.value)">
+            <option value="asc">Sort by Date Ascending</option>
+            <option value="desc">Sort by Date Descending</option>
+        </select>
+    </section>
 
     <main>
         <section id="projects">
-            <div class="project-card">
-                <h2>Project 1</h2>
-                <p>Description of Project 1 goes here.</p>
-                <p>Technologies used: HTML, CSS, JavaScript</p>
+            <div class="project-card" data-order="1">
+                <a href="https://github.com/odonnellrory/fun-nc-leaks" target="_blank" class="project-link">
+                    <h2>Project 1</h2>
+                    <p>Description of Project 1 goes here.</p>
+                    <p>Technologies used: HTML, CSS, JavaScript</p>
+                </a>
             </div>
-            
-            <a href="https://github.com/odonnellrory/fun-nc-leaks" target="_blank" class="project-link">
-            <div class="project-card">
-                <h2>Operation Undercover Northcoder</h2>
-                <p>An exciting mission using Node.js to infiltrate Northcoders, decoding encrypted instructions and gathering intel on employees and their pets.</p>
-                <p><strong>Technologies used:</strong> Node.js, HTTPS module, JSON handling, async programming, superagent, prettier</p>
+    
+            <div class="project-card" data-order="2">
+                <a href="https://github.com/odonnellrory/fun-nc-leaks" target="_blank" class="project-link">
+                    <h2>NC Leaks - Operation Undercover Northcoder</h2>
+                    <p>An exciting mission using Node.js to infiltrate Northcoders servers, decoding encrypted instructions and gathering intel on employees and their pets.</p>
+                    <p><strong>Technologies used:</strong> Node.js, HTTPS module, JSON handling, async programming and superagent.</p>
+                </a>
             </div>
-        </a>
-            
         </section>
     </main>
 
