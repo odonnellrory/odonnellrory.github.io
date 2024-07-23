@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects - Rory O'Donnell</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <header>
         <nav class="navbar">
@@ -18,7 +20,7 @@
             </ul>
         </nav>
     </header>
-    
+
     <section class="sort-buttons">
         <select id="sort-projects" onchange="sortProjects(this.value)">
             <option value="asc">Sort by Date Ascending</option>
@@ -29,18 +31,20 @@
     <main>
         <section id="projects">
             <div class="project-card" data-order="1">
-                <a href="https://github.com/odonnellrory/fun-nc-leaks" target="_blank" class="project-link">
-                    <h2>Project 1</h2>
-                    <p>Description of Project 1 goes here.</p>
+                <a href="https://odonnellrory.github.io/tic-tac-toe/" target="_blank" class="project-link">
+                    <h2>Tic Tac Toe</h2>
+                    <p>A fun little game I made on the first day of front-end.</p>
                     <p>Technologies used: HTML, CSS, JavaScript</p>
                 </a>
             </div>
-    
+
             <div class="project-card" data-order="2">
                 <a href="https://github.com/odonnellrory/fun-nc-leaks" target="_blank" class="project-link">
                     <h2>NC Leaks - Operation Undercover Northcoder</h2>
-                    <p>An exciting mission using Node.js to infiltrate Northcoders servers, decoding encrypted instructions and gathering intel on employees and their pets.</p>
-                    <p><strong>Technologies used:</strong> Node.js, HTTPS module, JSON handling, async programming and superagent.</p>
+                    <p>An exciting mission using Node.js to infiltrate Northcoders servers, decoding encrypted
+                        instructions and gathering intel on employees and their pets.</p>
+                    <p><strong>Technologies used:</strong> Node.js, HTTPS module, JSON handling, async programming and
+                        superagent.</p>
                 </a>
             </div>
         </section>
@@ -52,4 +56,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
