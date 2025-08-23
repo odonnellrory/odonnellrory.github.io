@@ -1,0 +1,19 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+
+# Ansible/Terraform
+*.retry
+.terraform/
+terraform.tfstate*
+*.tfvars
+
+# Secrets (commit examples not real secrets)
+secrets/
+*.key
+*.pem
+
