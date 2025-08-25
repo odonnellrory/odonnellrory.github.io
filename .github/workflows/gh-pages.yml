@@ -1,15 +1,4 @@
-# .github/workflows/gh-pages.yml
 name: Build and Deploy MkDocs to GitHub Pages
-
-on:
-  push:
-    branches: [ main ]
-  workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
 
 on:
   push:
