@@ -1,4 +1,4 @@
-site_name: Rory’s Homelab
+site_name: Docs
 site_url: https://odonnellrory.github.io/
 repo_url: https://github.com/odonnellrory/odonnellrory.github.io
 repo_name: odonnellrory/odonnellrory.github.io
@@ -33,7 +33,7 @@ plugins:
   - git-revision-date-localized:
       type: date
       enable_creation_date: true
-  - glightbox
+  - glightbox # for adding images
 
 markdown_extensions:
   - admonition
