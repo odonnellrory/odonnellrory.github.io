@@ -33,6 +33,7 @@ plugins:
   - git-revision-date-localized:
       type: date
       enable_creation_date: true
+  - glightbox
 
 markdown_extensions:
   - admonition
