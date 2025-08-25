@@ -1,5 +1,57 @@
-site_name: odonnellrory.github.io
+site_name: Rory’s Homelab
+site_url: https://odonnellrory.github.io/
 repo_url: https://github.com/odonnellrory/odonnellrory.github.io
+repo_name: odonnellrory/odonnellrory.github.io
+edit_uri: blob/main/docs/         # “Edit this page” links
+
 theme:
   name: material
+  features:
+    - navigation.instant           # faster client-side page swaps
+    - navigation.tracking          # highlight current section in sidebar
+    - navigation.top               # back-to-top button
+    - navigation.footer            # Next/Previous buttons
+    - content.code.copy            # copy button on code blocks
+    - search.highlight
+    - search.suggest
+  palette:
+    - scheme: default
+      primary: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
 
+plugins:
+  - search
+  - awesome-pages                  # auto order from .pages files
+  - minify                         # smaller HTML
+  - git-revision-date-localized:
+      type: date
+      enable_creation_date: true
+
+markdown_extensions:
+  - admonition
+  - def_list
+  - footnotes
+  - attr_list
+  - toc:
+      permalink: true
+  # Material “pymdownx” goodies
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.emoji
+  - pymdownx.tasklist
+
+use_directory_urls: true           # pretty URLs (/page/ instead of /page.html)
+strict: true                       # fail builds on errors
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/odonnellrory
