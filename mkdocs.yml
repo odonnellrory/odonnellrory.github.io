@@ -1,0 +1,5 @@
+site_name: homelab
+repo_url: https://github.com/odonnellrory/homelab
+theme:
+  name: material
+
