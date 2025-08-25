@@ -17,3 +17,7 @@ secrets/
 *.key
 *.pem
 
+# Python
+.venv/
+venv/
+ENV/
