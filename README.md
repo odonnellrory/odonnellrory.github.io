@@ -21,7 +21,9 @@ Notes are in /docs/00-journal/.
 
 ```
 
-## Debian (Ubuntu, Mint, etc)
+## Host locally
+
+### Debian (Ubuntu, Mint, etc)
 
 You'll need python to run it locally.
 
@@ -32,7 +34,7 @@ You'll need python to run it locally.
 
 ```
 
-## Instructions
+### Instructions
 
 You are going to make a virtual environment using python, that's what python3-venv is for.
 
@@ -51,7 +53,7 @@ Python will install what is listed there using pip.  That's what python3-pip is 
 
 ```
 
-## Run
+## Run Locally
 
 Now to run the website locally on your machine, run:
 
@@ -63,3 +65,14 @@ Now to run the website locally on your machine, run:
 
 Now go to [http://127.0.0.1:8000](http://127.0.0.1:8000) and there's your website.  
 Here you can preview changes live.
+
+---
+
+# Sources
+
+[MkDocs](https://www.mkdocs.org/) 
+[GitHub Pages]: https://docs.github.com/en/pages/getting-started-with-github-pages?source=post_page--------------------------- "GitHub Pages"
+[MkDocs How to Deploy]: https://www.mkdocs.org/user-guide/deploying-your-docs/ "MkDocs Docs"
+[MkDocs Material]: https://squidfunk.github.io/mkdocs-material/publishing-your-site/ "McDoks Publishing"
+
+
