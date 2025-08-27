@@ -14,14 +14,14 @@ Notes are in /docs/00-journal/.
 
 # Installation
 
-## Debian (Ubuntu, Mint, etc)
-
 ```zsh
 
     git clone https://github.com/odonnellrory/odonnellrory.github.io.git
     cd odonnellrory.github.io
 
 ```
+
+## Debian (Ubuntu, Mint, etc)
 
 You'll need python to run it locally.
 
@@ -32,11 +32,13 @@ You'll need python to run it locally.
 
 ```
 
-We are going to make a virtual environment using python, that's what python3-venv is for.
+## Instructions
+
+You are going to make a virtual environment using python, that's what python3-venv is for.
 
 Inside this virtual environment, you will install the dependencies.
 
-The dependencies is a text file in the repo's root directory.  requirements.txt
+The dependencies are listed in a text file in the repo's root directory.  requirements.txt
 
 Python will install what is listed there using pip.  That's what python3-pip is for.
 
@@ -48,6 +50,8 @@ Python will install what is listed there using pip.  That's what python3-pip is 
 
 
 ```
+
+## Run
 
 Now to run the website locally on your machine, run:
 
