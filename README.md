@@ -1,6 +1,6 @@
 # Introduction
 
-It uses MkDocs with Github pages to create a website.
+This site uses [MkDocs](https://www.mkdocs.org/) + GitHub Pages.
 
 Once this is set up, I edit the website by simply writing to a markdown file on my machine.
 
@@ -29,7 +29,7 @@ You'll need python to run it locally.
 
 ```zsh
 
-    sudo apt get update
+    sudo apt update
     sudo apt install python3 python3-venv python3-pip
 
 ```
@@ -70,8 +70,8 @@ Here you can preview changes live.
 
 # Sources
 
-[MkDocs](https://www.mkdocs.org/) 
 [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages?source=post_page--------------------------- "GitHub Pages")
+[MkDocs](https://www.mkdocs.org/) 
 [MkDocs How to Deploy](https://www.mkdocs.org/user-guide/deploying-your-docs/ "MkDocs Docs")
 [MkDocs Material](https://squidfunk.github.io/mkdocs-material/publishing-your-site/ "McDoks Publishing")
 

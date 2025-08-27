@@ -1,3 +1,5 @@
-# Home
+# Landing Page
 
-Hi, this is an automated journal for my home network projects.
+Having a home page is a requirement.  And it's not something I have made yet.
+
+Consider this a placeholder page.
