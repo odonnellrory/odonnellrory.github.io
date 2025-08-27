@@ -1,21 +1,35 @@
 # Introduction
-Procrastination station.
-I've turned documenting my projects into a project.
-It's just a bunch of markdown files really, but I've got MkDocs and GitHub Pages turning them into an updateable feed that can be read anywhere.
 
-The aim of this repository is to document my home network projects in a clean and reproducible manner.
+It uses MkDocs with Github pages to create a website.
+
+I currently use this as a notepad on my machine, as it is just markdown files.
+
+Files are saved locally, push them to GitHub, GitHub Actions will host the repo as a website.  [MkDocs](https://www.mkdocs.org/) will organise the Markdown files automatically into navigatable HTML.
+
+It even has plugins.  
+
+I plan to use this to document a lot of the projects that I have made over the last year, and any projects I work on.
 
 Journal lives in ./docs/00-journal/.
 
 
 
 # Installation
-It's just text files.
 
-Run:
 ```zsh
-git clone https://github.com/odonnellrory/odonnellrory.github.io.git
-cd odonnellrory.github.io
-nvim .
+
+    git clone https://github.com/odonnellrory/odonnellrory.github.io.git
+    cd odonnellrory.github.io
+
 ```
+
+You'll need python to run it locally.
+
+```zsh
+
+    sudo apt get update
+    sudo apt install python3 python3-venv python3-pip
+
+```
+
 
