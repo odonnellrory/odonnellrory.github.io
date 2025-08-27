@@ -32,4 +32,30 @@ You'll need python to run it locally.
 
 ```
 
+We are going to make a virtual environment using python, that's what python3-venv is for.
 
+Inside this virtual environment, you will install the dependencies.
+
+The dependencies is a text file in the repo's root directory.  requirements.txt
+
+Python will install what is listed there using pip.  That's what python3-pip is for.
+
+```zsh
+
+    python3 -m venv .venv
+    source .venv/bin/activate
+    pip install -r requirements.txt
+
+
+```
+
+Now to run the website locally on your machine, run:
+
+```zsh
+
+    python -m mkdocs serve
+
+```
+
+Now go to [http://127.0.0.1:8000](http://127.0.0.1:8000) and there's your website.  
+Here you can preview changes live.
