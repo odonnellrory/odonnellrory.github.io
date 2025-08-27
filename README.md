@@ -71,8 +71,8 @@ Here you can preview changes live.
 # Sources
 
 [MkDocs](https://www.mkdocs.org/) 
-[GitHub Pages]: https://docs.github.com/en/pages/getting-started-with-github-pages?source=post_page--------------------------- "GitHub Pages"
-[MkDocs How to Deploy]: https://www.mkdocs.org/user-guide/deploying-your-docs/ "MkDocs Docs"
-[MkDocs Material]: https://squidfunk.github.io/mkdocs-material/publishing-your-site/ "McDoks Publishing"
+[GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages?source=post_page--------------------------- "GitHub Pages")
+[MkDocs How to Deploy](https://www.mkdocs.org/user-guide/deploying-your-docs/ "MkDocs Docs")
+[MkDocs Material](https://squidfunk.github.io/mkdocs-material/publishing-your-site/ "McDoks Publishing")
 
 
