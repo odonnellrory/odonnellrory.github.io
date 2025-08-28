@@ -8,6 +8,8 @@ theme:
   name: material
   features:
     - navigation.instant           # faster client-side page swaps
+    - navigation.indexes
+    - navigation.expand
     - navigation.tracking          # highlight current section in sidebar
     - navigation.top               # back-to-top button
     - navigation.footer            # Next/Previous buttons

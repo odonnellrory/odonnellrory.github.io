@@ -1,0 +1,144 @@
+:root {
+    --background: #1a1a2e;
+    --text: #e94560;
+    --neon: #16213e;
+    --box-border: #0f3460;
+    --hover: #533483;
+    --winning-blocks: #e94560;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    background-color: var(--background);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    background-color: var(--background);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--neon);
+    color: var(--text);
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(0.8rem, 2vw, 1rem);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+    background-color: var(--hover);
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px var(--text);
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem 1rem;
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 10px var(--text);
+    text-align: center;
+}
+
+#scoreBoard {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 2rem;
+}
+
+.score {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    margin: 5px;
+}
+
+#gameboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 400px;
+}
+
+.box {
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(2rem, 10vw, 3rem);
+    background-color: var(--neon);
+    border: 2px solid var(--box-border);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.box:hover {
+    background-color: var(--hover);
+    transform: scale(1.05);
+}
+
+.box.winner {
+    background-color: var(--winning-blocks);
+    color: var(--text);
+    animation: winner-animation 1.5s ease infinite;
+}
+
+@keyframes winner-animation {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .nav-button {
+        padding: 8px 16px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+}
