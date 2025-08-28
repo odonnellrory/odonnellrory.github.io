@@ -123,8 +123,7 @@ To make that into a function you can use to start the server, put the following 
 
 If you have not changed your shell, then that is most likely going to be ``` ~/.bashrc```.
 
-```
-    
+``` 
 startdocs() {
 
     cd ~/odonnellrory.github.io
@@ -132,7 +131,6 @@ startdocs() {
     python -m mkdocs serve
 
 }
-
 ```
 Save that inside the file and then source your rc file.
 (```source ~/.bashrc``` if using bash)
