@@ -46,7 +46,7 @@ index.md is the landing page.
 ## Hosting
 ---
 
-###  Python
+###  Python Virtual Environment
 
 You are going to make a virtual environment using python, that's what python3-venv is for.
 
