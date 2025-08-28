@@ -1,6 +1,6 @@
 # Introduction
 
-This site uses [MkDocs](https://www.mkdocs.org/) + GitHub Pages.
+This webpage uses [MkDocs](https://www.mkdocs.org/) and GitHub Pages.
 
 Once this is set up, I edit the website by simply writing to a markdown file on my machine.
 
