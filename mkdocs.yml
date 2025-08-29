@@ -4,29 +4,63 @@ repo_url: https://github.com/odonnellrory/odonnellrory.github.io
 repo_name: odonnellrory/odonnellrory.github.io
 edit_uri: blob/main/docs/         
 
+# Configuration
 theme:
   name: material
+  custom_dir: docs/
   features:
-    - navigation.instant           # faster client-side page swaps
+    - announce.dismiss
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    # - content.code.select
+    # - content.footnote.tooltips
+    # - content.tabs.link
+    - content.tooltips
+    # - header.autohide
+    # - navigation.expand
+    - navigation.footer
     - navigation.indexes
+    # - navigation.instant
+    # - navigation.instant.prefetch
+    # - navigation.instant.progress
+    # - navigation.prune
     - navigation.sections
-    - navigation.tracking          # highlight current section in sidebar
-    - navigation.top               # back-to-top button
-    - navigation.footer            # Next/Previous buttons
-    - content.code.copy            # copy button on code blocks
+    - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
     - search.highlight
+    - search.share
     - search.suggest
+    - toc.follow
+    # - toc.integrate
   palette:
-    - scheme: default
-      primary: indigo
+    - media: "(prefers-color-scheme)"
       toggle:
-        icon: material/weather-night
-        name: Switch to dark mode
-    - scheme: slate
-      primary: indigo
-      toggle:
-        icon: material/weather-sunny
+        icon: material/link
         name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off
+        name: Switch to system preference
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: assets/favicon.png
+  icon:
+    logo: logo
 
 plugins:
   - search
@@ -54,7 +88,10 @@ markdown_extensions:
 use_directory_urls: true           # pretty URLs (/page/ instead of /page.html)
 strict: true                       # fail builds on errors
 
+
+
+
 extra:
   social:
-    - icon: fontawesome/brands/github
+    - icon: fontawesome/brands/git-alt
       link: https://github.com/odonnellrory

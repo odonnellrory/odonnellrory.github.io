@@ -1,6 +1,5 @@
 nav:
   - "~": index.md
-  - Tic-Tac-Toe: tic-tac-toe/index.html
-  - Markdown: markdownguide.md
+  - Markdown Guide: markdownguide.md
   - MkDocs: 01-MkDocs
   - Notes: 00-journal
