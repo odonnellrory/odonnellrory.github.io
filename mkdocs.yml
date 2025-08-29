@@ -2,14 +2,14 @@ site_name: Docs
 site_url: https://odonnellrory.github.io/
 repo_url: https://github.com/odonnellrory/odonnellrory.github.io
 repo_name: odonnellrory/odonnellrory.github.io
-edit_uri: blob/main/docs/         # “Edit this page” links
+edit_uri: blob/main/docs/         
 
 theme:
   name: material
   features:
     - navigation.instant           # faster client-side page swaps
     - navigation.indexes
-    - navigation.expand
+    - navigation.sections
     - navigation.tracking          # highlight current section in sidebar
     - navigation.top               # back-to-top button
     - navigation.footer            # Next/Previous buttons
@@ -32,10 +32,10 @@ plugins:
   - search
   - awesome-pages                  # auto order from .pages files
   - minify                         # smaller HTML
+  - glightbox                      # for adding images
   - git-revision-date-localized:
       type: date
       enable_creation_date: true
-  - glightbox # for adding images
 
 markdown_extensions:
   - admonition

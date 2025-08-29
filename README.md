@@ -1,10 +1,10 @@
-# Introduction
+# Installation Guide
 
-This webpage uses [MkDocs](https://www.mkdocs.org/) and GitHub Pages.
+This webpage uses [MkDocs](https://www.mkdocs.org/) and [GitHub Pages](https://docs.github.com/en/pages).
 
 Once this is set up, I edit the website by simply writing to a markdown file on my machine.
 
-The files are saved locally, push them to GitHub, GitHub Actions will host the repo as a website.  [MkDocs](https://www.mkdocs.org/) will organise the Markdown files automatically into navigatable HTML.  
+The files are saved locally, push them to GitHub, GitHub Actions will host the repo as a website.  MkDocs will organise the Markdown files automatically into navigatable HTML.  
 
 I plan to use this to document a lot of the projects that I have made over the last year, and any projects that I work on in the future.
 

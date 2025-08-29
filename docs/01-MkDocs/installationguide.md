@@ -1,10 +1,10 @@
-# How it Works
+# Installation Guide
 
-This site uses [MkDocs](https://www.mkdocs.org/) + GitHub Pages.
+This webpage uses [MkDocs](https://www.mkdocs.org/) and [GitHub Pages](https://docs.github.com/en/pages).
 
 Once this is set up, I edit the website by simply writing to a markdown file on my machine.
 
-The files are saved locally, push them to GitHub, GitHub Actions will host the repo as a website.  [MkDocs](https://www.mkdocs.org/) will organise the Markdown files automatically into navigatable HTML.  
+The files are saved locally, push them to GitHub, GitHub Actions will host the repo as a website.  MkDocs will organise the Markdown files automatically into navigatable HTML.  
 
 I plan to use this to document a lot of the projects that I have made over the last year, and any projects that I work on in the future.
 
@@ -178,80 +178,3 @@ ufw's syntax is very simple.  Here's my attempt at a cheat sheet on how to use i
 ```
 
 ---
-## Markdown 
-### "#"
-```markdown
-
-# page name
-
-each additional bash is a heading
-
-##  - h2
-
-### - h3
-
-#### - h4
-
-##### - h5
-
-```
-
-The table of contents on the right of the webpage will draw its order of hierarchy from these "#" headings.
-
----
-
-### Dividers
-
-You can create a line to divide the page with 3 consecutive hyphens.
-
-```markdown
-
-    ---
-
-
-```
-
----
-
-### Code Blocks
-
-The code-blocks with the cool little copy buttons?
-It's three backticks for the beginning, and three to mark the end of the square, like so.
-
-```markdown
-    ```
-    ```
-```
-``` like this ```
----
-
-You can create this monstrosity:
-
-??? note "Button"
-    They can be nested using the indentation on the current line:
-
-    ??? note "Another Button?"    
-        ```markdown 
-            ??? note "Need HELP?"
-                ??? note "No, seriously????"    
-                    And then here is the content  
-        ```
-
-
-```markdown 
-    ??? note "Need HELP?"
-        Here is some content.
-        ??? note "No, seriously????"    
-            Even more content.  
-```
-
----
-
-
-## Sources
-
-[| GitHub Pages ](https://docs.github.com/en/pages/getting-started-with-github-pages?source=post_page--------------------------- "GitHub Pages")
-[| MkDocs ](https://www.mkdocs.org/) 
-[| MkDocs Deploy ](https://www.mkdocs.org/user-guide/deploying-your-docs/ "MkDocs Docs")
-[| MkDocs Material |](https://squidfunk.github.io/mkdocs-material/publishing-your-site/ "McDoks Publishing")
-[Markdown Tools |](https://www.markdowntools.com/)
