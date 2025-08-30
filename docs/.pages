@@ -1,5 +1,4 @@
 nav:
   - "~": index.md
-  - Markdown Guide: markdownguide.md
   - MkDocs: 01-MkDocs
   - Notes: 00-journal

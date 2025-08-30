@@ -1,4 +1,8 @@
-# Markdown Guide
+# How to Write Better Notes
+
+## Markdown
+
+**Please Note:  MkDocs uses python-markdown.**
 
 ### "#"
 ```
@@ -46,6 +50,8 @@ It's three backticks for the beginning, and three to mark the end of the square,
 ``` like this ```
 ---
 
+### Help Boxes
+
 You can create this monstrosity:
 
 ??? note "Button"
@@ -67,6 +73,63 @@ You can create this monstrosity:
 ```
 
 ---
+
+### Line Break
+
+Sometimes
+your
+lines
+of
+text
+appear
+as
+a
+big
+paragraph
+even though
+the words are on different lines
+in your file
+this is because there are no line breaks.
+This short paragraph was written like this, for example:
+
+```
+
+Sometimes
+your
+lines
+of
+text
+appear
+as
+a
+big
+paragraph
+even though
+the words are on different lines
+in your file
+this is because there are no line breaks.
+
+```
+
+In python markdown, you can separate the lines in a paragraph, without creating a new paragraph, using:
+
+```
+    <br>
+
+```
+
+Example:
+
+```
+    Sometimes your lines of text <br>
+    Appear as a big paragraph <br>
+    Even though they should not <br>
+
+```
+
+Sometimes your lines of text <br>
+Appear as a big paragraph <br>
+Even though they should not <br>
 
 
 ## Sources

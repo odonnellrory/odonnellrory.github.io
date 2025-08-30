@@ -147,34 +147,36 @@ To host the webpage across your network:
 
 ```
 
-Ensure that your firewall is allowing traffic on that port.
+??? note "Linux Firewall - ufw"
 
-```
+    Ensure that your firewall is allowing traffic on that port.
+
+    ```
     sudo ufw status verbose
 
-```
+    ```
 
-This will tell you your current firewall settings.
-If it says ufw is not found or is not turned on, then install it and run:
+    This will tell you your current firewall settings.
+    If it says ufw is not found or is not turned on, then install it and run:
 
-```
+    ```
     sudo systemctl enable ufw
     sudo systemctl start ufw
 
-```
+    ```
 
-Now your firewall will run on startup.
+    Now your firewall will run on startup.
 
-The port for the webpage is 8000
-The port for SSH is 22
+    The port for the webpage is 8000
+    The port for SSH is 22
 
-ufw's syntax is very simple.  Here's my attempt at a cheat sheet on how to use it:
+    ufw's syntax is very simple.  Here's my attempt at a cheat sheet on how to use it:
 
-```
+    ```
     sudo ufw deny/allow   port-number/protocol 
              status       verbose
              default      deny/allow  port-number/protocol
              
-```
+    ```
 
 ---

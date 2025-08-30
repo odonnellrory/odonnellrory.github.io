@@ -46,7 +46,7 @@ index.md is the landing page.
 ## Hosting
 ---
 
-###  Python Virtual Environment
+###  Python
 
 You are going to make a virtual environment using python, that's what python3-venv is for.
 
@@ -117,13 +117,12 @@ Now to run the webpage locally on your machine:
 Now go to [http://127.0.0.1:8000](http://127.0.0.1:8000) and there's your website.  
 Here you can preview changes live.
 
----
-
 To make that into a function you can use to start the server, put the following into your rc file.
 
 If you have not changed your shell, then that is most likely going to be ``` ~/.bashrc```.
 
-``` 
+```
+    
 startdocs() {
 
     cd ~/odonnellrory.github.io
@@ -131,19 +130,51 @@ startdocs() {
     python -m mkdocs serve
 
 }
+
 ```
 Save that inside the file and then source your rc file.
 (```source ~/.bashrc``` if using bash)
 
 
+###   Private Network
+
+To host the webpage across your network:
+
+```
+    cd ~/odonnellrory.github.io
+    source .venv/bin/activate
+    python -m mkdocs serve --dev-adr=your.ip.address.here:8000
+
+```
+
+Ensure that your firewall is allowing traffic on that port.
+
+```
+    sudo ufw status verbose
+
+```
+
+This will tell you your current firewall settings.
+If it says ufw is not found or is not turned on, then install it and run:
+
+```
+    sudo systemctl enable ufw
+    sudo systemctl start ufw
+
+```
+
+Now your firewall will run on startup.
+
+The port for the webpage is 8000
+The port for SSH is 22
+
+ufw's syntax is very simple.  Here's my attempt at a cheat sheet on how to use it:
+
+```
+    sudo ufw deny/allow   port-number/protocol 
+             status       verbose
+             default      deny/allow  port-number/protocol
+             
+```
 
 ---
-
-
-## Sources
-
-[| GitHub Pages ](https://docs.github.com/en/pages/getting-started-with-github-pages?source=post_page--------------------------- "GitHub Pages")
-[| MkDocs ](https://www.mkdocs.org/) 
-[| MkDocs Deploy ](https://www.mkdocs.org/user-guide/deploying-your-docs/ "MkDocs Docs")
-[| MkDocs Material |](https://squidfunk.github.io/mkdocs-material/publishing-your-site/ "McDoks Publishing")
-[Markdown Tools |](https://www.markdowntools.com/)
