@@ -1,13 +1,12 @@
-# Editing Text Files
+# NeoVim
 
-## NVIM
+## Introduction
 ---
 
 To edit my text files I use a program called neovim.
 
-Neovim is an evolution of Vi, the better alternative to nano.
-If I ever hear you talk about your Nano proficiency, then I am afraid that you are misinformed. 
-You should never use nano more than once, like for example to ***install neovim*** on Nix. <br>
+Neovim is an evolution of Vi, the better alternative to Nano.
+You should ideally not be using Nano more than once, for example, you would use Nano to ***install neovim*** on Nix. <br>
 Nano is a backup for when Vi does not work or is not installed.
 
 Anyway, sorry if I offended you, you can do a lot of cool things with Neovim; it has plugins.
@@ -29,7 +28,7 @@ But it usually works out of the box.
 
 But it's nothing you can't overcome with a little googling.
 
-With this, you will not just edit text, but be moving files, moving entire directories, renaming, deleting, everything you would have to leave nano to write a command, has a shortcut or a plugin on neovim. <br>
+With this, you will not just edit text, but be moving files, moving entire directories, renaming, deleting, everything you would have to leave Nano to write a command, has a shortcut or a plugin on neovim. <br>
 You seldom ever have to leave.  And if you need to use the command-line, it still has you covered with the Alt-I keyboard shortcut, which will open a temporary miniature terminal in the centre of neovim.
 
 ---
@@ -67,3 +66,5 @@ This makes it incredibly easy to re-organise repository structure and to change 
     :%s/searches/replaces
 
 ```
+
+---

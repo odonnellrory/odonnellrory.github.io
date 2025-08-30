@@ -1,6 +1,4 @@
-# How to Write Better Notes
-
-## Markdown
+# Markdown
 
 **Please Note:  MkDocs uses python-markdown.**
 
