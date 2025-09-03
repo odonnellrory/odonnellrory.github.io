@@ -1,4 +1,4 @@
 nav:
   - "~": index.md
-  - MkDocs: 01-MkDocs
+  - Tech: 01-Tech
   - Notes: 00-journal
