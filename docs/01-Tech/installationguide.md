@@ -2,17 +2,18 @@
 
 This webpage uses [MkDocs](https://www.mkdocs.org/) and [GitHub Pages](https://docs.github.com/en/pages).
 
-Once this is set up, I edit the website by simply writing to a markdown file on my machine.
+MkDocs takes Markdown files and automatically generates HTML based on the Markdown and sets of plugins that you install within the projects .yml files.  There is one in the root and one in .github/workflows.
 
-The files are saved locally, push them to GitHub, GitHub Actions will host the repo as a website.  MkDocs will organise the Markdown files automatically into navigatable HTML.  
+Originally I created this to document my homelab, but it has become a blog with some guides on things that I find interesting.
 
-I plan to use this to document a lot of the projects that I have made over the last year, and any projects that I work on in the future.
+The nav bar at the top of the site is generated based on my folder structure and the .pages files.  The .pages files, found in docs/ and each directory recursively after docs/, are where you tell MkDocs where to direct the page.
 
 Notes are in /docs/00-journal/.
 
 ---
 
 ## Installation
+I am going to assume you want your own version that does not have my stuff in it, I will write this installation guide so that you can do that and have your own MkDocs site up and running very quickly.
 
 
 ```zsh
@@ -26,7 +27,6 @@ This gives you a local copy of the entire repository.
 
 You can skip to the end now if you want to run my website with my stuff in it.
 
-I am going to assume you want your own version that does not have my stuff in it, I will write this installation guide so that you can do that and have your own MkDocs site up and running very quickly.
 
 ```zsh
    rm -rf .git 
@@ -147,36 +147,34 @@ To host the webpage across your network:
 
 ```
 
-??? note "Linux Firewall - ufw"
+Ensure that your firewall is allowing traffic on that port.
 
-    Ensure that your firewall is allowing traffic on that port.
-
-    ```
+```
     sudo ufw status verbose
 
-    ```
+```
 
-    This will tell you your current firewall settings.
-    If it says ufw is not found or is not turned on, then install it and run:
+This will tell you your current firewall settings.
+If it says ufw is not found or is not turned on, then install it and run:
 
-    ```
+```
     sudo systemctl enable ufw
     sudo systemctl start ufw
 
-    ```
+```
 
-    Now your firewall will run on startup.
+Now your firewall will run on startup.
 
-    The port for the webpage is 8000
-    The port for SSH is 22
+The port for the webpage is 8000
+The port for SSH is 22
 
-    ufw's syntax is very simple.  Here's my attempt at a cheat sheet on how to use it:
+ufw's syntax is very simple.  Here's my attempt at a cheat sheet on how to use it:
 
-    ```
+```
     sudo ufw deny/allow   port-number/protocol 
              status       verbose
              default      deny/allow  port-number/protocol
              
-    ```
+```
 
 ---

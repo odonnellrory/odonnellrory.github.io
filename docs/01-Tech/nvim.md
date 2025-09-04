@@ -6,10 +6,9 @@
 To edit my text files I use a program called neovim.
 
 Neovim is an evolution of Vi, the better alternative to Nano.
-You should ideally not be using Nano more than once, for example, you would use Nano to ***install neovim*** on Nix. <br>
-Nano is a backup for when Vi does not work or is not installed.
+Nano is a backup for when Vi does not work or a Vi based text editor is not installed.
 
-Anyway, sorry if I offended you, you can do a lot of cool things with Neovim; it has plugins.
+Anyway, you can do a lot of cool things with Neovim; it has plugins.
 
 
 
