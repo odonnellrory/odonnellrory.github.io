@@ -5,3 +5,4 @@ mkdocs-minify-plugin
 mkdocs-git-revision-date-localized-plugin
 pymdown-extensions
 mkdocs-glightbox
+mkdocs-macros-plugin

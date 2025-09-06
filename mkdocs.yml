@@ -1,7 +1,7 @@
 site_name: Documentation Station
 site_url: https://odonnellrory.github.io/
 repo_url: https://github.com/odonnellrory/odonnellrory.github.io
-repo_name: GitHub
+repo_name: Rory O'Donnell
 edit_uri: blob/main/docs/         
 
 # Configuration
@@ -35,6 +35,7 @@ plugins:
   - awesome-pages                
   - minify                        
   - glightbox                      
+  - macros
   - git-revision-date-localized:
       type: date
       enable_creation_date: true
