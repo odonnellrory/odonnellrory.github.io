@@ -1,5 +1,5 @@
 nav:
   - "~": index.md
   - Knowledge Base: 01-knowledge-base
-  - Notes: 00-journal
   - Hack the Box: 02-hack-the-box
+  - Notes: 00-journal
