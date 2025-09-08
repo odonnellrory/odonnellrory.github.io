@@ -30,6 +30,11 @@
     
 ---
 
+
+[Brutus Complete](https://labs.hackthebox.com/achievement/sherlock/2582863/631)
+
+![Brutus Complete](../00-journal/Images/2025-09-06/brutuscomplete.png)
+
 the zip files gives you 3 files, and auth.log, wtmp, and a python script for parsing the wtmp file.
 
 So lets check these files. 
