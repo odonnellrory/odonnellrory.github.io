@@ -185,3 +185,10 @@ Mar  6 06:37:34 ip-172-31-35-28 sshd[2667]: Accepted password for cyberjunkie fr
 ```
 
 Now we get a clearer picture of what has happened.  Combined with our knowledge that there have been 257 SSH attempts, and before adding ```grep -v Failed | grep -v preauth | grep -v Invalid``` you could see that each of those 257 are all from **65.2.161.68**.
+
+
+---
+
+## Sources
+
+[IppSec's Guide](https://www.youtube.com/watch?v=bv08UcIL1po)
