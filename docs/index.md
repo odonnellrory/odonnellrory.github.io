@@ -16,4 +16,4 @@ Notes are in /docs/00-journal/.
 
 ---
 
-[Here's tic tac toe, if you want that.](tic-tac-toe/)
+[Tic Tac Toe](tic-tac-toe/)
