@@ -3,8 +3,6 @@
 FTP is a protocol that is native to most operating systems. <Br>
 It is used to transfer files from a server to a client on a network. <Br>
 
-
-
 ---
 
 ## Sources
