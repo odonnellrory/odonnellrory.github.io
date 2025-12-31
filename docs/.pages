@@ -2,4 +2,5 @@ nav:
   - "~": index.md
   - Knowledge Base: 01-knowledge-base
   - Hack the Box: 02-hack-the-box
+  - Fedora OS: 03-fedora
   - Notes: 00-journal
