@@ -1,14 +1,12 @@
 # Installing NVIDIA Drivers on Fedora Linux
 
-This guide documents **exactly** how I fixed broken NVIDIA GPU acceleration on Fedora after discovering that my system was silently using **Intel Iris Xe** instead of my **RTX 3050**.
+This guide is how I fixed broken NVIDIA GPU acceleration on Fedora after discovering that my system was silently using **Intel Iris Xe** instead of my **RTX 3050**.
 
 These are the exact commands I ran, in the order I ran them.
 
 ---
 
 ## Context
-
-Symptoms:
 
 - Very low FPS in Proton games
 - Games running noticeably worse than on Arch / Nix on the same hardware
@@ -25,23 +23,23 @@ Before touching drivers, verify what the system is rendering with.
 
 ### OpenGL renderer check
 
-```bash
-glxinfo | grep "OpenGL renderer"
-````
+```
+        glxinfo | grep "OpenGL renderer"
+```
 
 Output showed:
 
 ```
-Mesa Intel(R) Iris(R) Xe Graphics (RPL-P)
+        Mesa Intel(R) Iris(R) Xe Graphics (RPL-P)
 ```
 
 This was the first red flag.
 On a laptop with an **RTX 3050**, this means Fedora is **not using NVIDIA at all**.
 
-### Vulkan Check
 
-```bash
-vulkaninfo | less
+
+```
+        vulkaninfo | less
 ```
 
 This showed multiple devices, including:
@@ -56,14 +54,14 @@ But the presence of NVIDIA here **does not** mean the driver is installed or act
 
 ## Confirm NVIDIA Driver Is Missing
 
-```bash
-nvidia-smi
+```
+        nvidia-smi
 ```
 
 Result:
 
 ```
-command not found
+        command not found
 ```
 
 This confirms the NVIDIA driver is not installed.
@@ -76,10 +74,10 @@ Fedora does **not** ship NVIDIA drivers by default.
 
 Enable RPM Fusion (free + nonfree):
 
-```bash
-sudo dnf install -y \
-  https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
-  https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+```
+        sudo dnf install -y \
+          https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
+          https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
 
 ---
@@ -89,7 +87,8 @@ sudo dnf install -y \
 Install the NVIDIA kernel module and CUDA utilities:
 
 ```
-sudo dnf install -y akmod-nvidia xorg-x11-drv-nvidia-cuda
+        sudo dnf install -y akmod-nvidia xorg-x11-drv-nvidia-cuda
+
 ```
 
 Notes:
@@ -99,42 +98,37 @@ Notes:
 * Nothing will work yet, the module still needs to build
 
 ```
-sudo akmods --force
+        sudo akmods --force
+
 ```
 
 Expected output includes lines like:
 
 ```
-Checking kmods exist for <kernel-version> [ OK ]
+        Checking kmods exist for <kernel-version> [ OK ]
+
 ```
 
 If you see OK messages, the module built successfully.
 
----
-
-## Reboot
-
-This step is **mandatory**.
-
-```bash
-sudo reboot
-```
 
 ## Verify
 
 After reboot, run:
 
-```bash
-nvidia-smi
 ```
-
-Expected output resembles:
+        nvidia-smi
 
 ```
-NVIDIA-SMI <version>
-Driver Version: <version>
-CUDA Version: <version>
-GPU: NVIDIA GeForce RTX 3050
+
+Expected output:
+
+```
+        NVIDIA-SMI <version>
+        Driver Version: <version>
+        CUDA Version: <version>
+        GPU: NVIDIA GeForce RTX 3050
+
 ```
 
 This confirms the NVIDIA driver is loaded and active.
@@ -142,16 +136,18 @@ Re-run the earlier checks.
 
 ### OpenGL renderer
 
-```bash
-glxinfo | grep "OpenGL renderer"
+```
+        glxinfo | grep "OpenGL renderer"
+
 ```
 
 This should **no longer** show Intel Iris Xe.
 
 ### Vulkan devices
 
-```bash
-vulkaninfo | grep -E "GPU|deviceName"
+```
+        vulkaninfo | grep -E "GPU|deviceName"
+
 ```
 
 You should see the NVIDIA GPU listed as a discrete device.
@@ -171,21 +167,21 @@ The key lesson:
 
 ---
 
-## Commands Used (Audit Trail)
-
-For reference, these were the exact commands executed during troubleshooting:
+## Commands Used 
+For reference, these are all of the commands used:
 
 ```
-glxinfo | grep "OpenGL renderer"
-vulkaninfo
-nvidia-smi
+        glxinfo | grep "OpenGL renderer"
+        vulkaninfo
+        nvidia-smi
 
-sudo dnf install -y akmod-nvidia xorg-x11-drv-nvidia-cuda
-sudo akmods --force
-sudo reboot
+        sudo dnf install -y akmod-nvidia xorg-x11-drv-nvidia-cuda
+        sudo akmods --force
+        sudo reboot
 
-nvidia-smi
-vulkaninfo | grep -E "GPU|deviceName"
+        nvidia-smi
+        vulkaninfo | grep -E "GPU|deviceName"
+
 ```
 
----
+
