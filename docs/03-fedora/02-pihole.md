@@ -41,12 +41,6 @@ dig @192.168.*.*** pihole.home.arpa +short
 # returns: 192.168.*.***
 ```
 
-This proves:
-
-✅ Pi-hole has the correct DNS records
-✅ The LAN is reachable
-❌ Proton VPN is interfering with system DNS resolution
-
 ---
 
 ## Root Cause
