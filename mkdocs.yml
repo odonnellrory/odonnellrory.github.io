@@ -53,6 +53,11 @@ markdown_extensions:
   - pymdownx.emoji
   - pymdownx.tasklist
 
+extra_css:
+  - stylesheets/home.css
+extra_javascript:
+  - javascripts/home.js
+
 use_directory_urls: true          
 
 # Fail builds on errors
