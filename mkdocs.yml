@@ -1,4 +1,5 @@
 site_name: Documentation Station
+site_description: Homelab notes, walkthroughs, and technical guides by Rory O'Donnell.
 site_url: https://odonnellrory.github.io/
 repo_url: https://github.com/odonnellrory/odonnellrory.github.io
 repo_name: Rory O'Donnell
@@ -7,7 +8,6 @@ edit_uri: blob/main/docs/
 # Configuration
 theme:
   name: material
-  custom_dir: docs/
   features:
     - announce.dismiss
     - content.action.edit

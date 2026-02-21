@@ -143,7 +143,7 @@ To host the webpage across your network:
 ```
     cd ~/odonnellrory.github.io
     source .venv/bin/activate
-    python -m mkdocs serve --dev-adr=your.ip.address.here:8000
+    python -m mkdocs serve --dev-addr=your.ip.address.here:8000
 
 ```
 

@@ -1,19 +1,13 @@
-# Documentation Station.
+# Documentation Station
 
-This website uses [MkDocs](https://www.mkdocs.org/) and [GitHub Pages](https://docs.github.com/en/pages).
+This site is my technical notebook: homelab notes, Linux setup guides, and security challenge walkthroughs.
 
-MkDocs takes Markdown files and automatically generates HTML based on the Markdown and sets of plugins that you install within the projects .yml files.  There is one in the root and one in .github/workflows.
+It is built with [MkDocs](https://www.mkdocs.org/) and [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/), and published with GitHub Pages.
 
-Originally I created this to document my homelab, but it has become a blog with some guides on things that I find interesting.
+## Start Here
 
-The nav bar at the top of the site is generated based on my folder structure and the .pages files.  The .pages files, found in docs/ and each directory recursively after docs/, are where you tell MkDocs where to direct the page.
-
-Notes are in /docs/00-journal/.
-
----
-
-[Latest journal entry]({{ latest_journal_path() }})
-
----
-
-[Tic Tac Toe](tic-tac-toe/)
+- [Latest journal entry]({{ latest_journal_path() }})
+- [Knowledge Base](01-knowledge-base/00-installationguide/)
+- [Hack The Box Walkthroughs](02-hack-the-box/01-brutus/)
+- [Fedora Notes](03-fedora/01-nvidia/)
+- [Play Tic Tac Toe](tic-tac-toe/)
