@@ -3,7 +3,7 @@
   <section class="landing-hero">
     <p class="landing-kicker">RORY O'DONNELL</p>
     <div class="landing-topbar">
-      <form class="landing-search" action="search/" method="get" role="search" aria-label="Search docs">
+      <form class="landing-search" action="#" method="get" role="search" aria-label="Search docs">
         <label class="landing-search-label" for="landing-search-input">Search the docs</label>
         <div class="landing-search-row">
           <input
@@ -16,6 +16,9 @@
             required
           >
           <button class="landing-search-button" type="submit">Search</button>
+        </div>
+        <div class="landing-search-preview" hidden>
+          <ul class="landing-search-results" aria-label="Search suggestions"></ul>
         </div>
       </form>
       <div class="landing-social-row" aria-label="Social links">
