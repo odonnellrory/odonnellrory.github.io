@@ -6,7 +6,18 @@ hide:
 <div class="landing-root">
   <a class="landing-back-link" href="/">Back to Home</a>
   <section class="landing-hero">
-    <p class="landing-kicker">About Me</p>
+    <div class="about-header">
+      <p class="landing-kicker">About Me</p>
+      <div class="about-profile">
+        <div class="about-avatar">
+          <img class="about-avatar-image" src="https://media.licdn.com/dms/image/v2/D4E03AQFeUjahScaD-Q/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1722018789463?e=1773273600&v=beta&t=N9VL1NKMkDr5glso1qjikPyNAZE-i7mA03OnFKuCFjI" alt="Rory O'Donnell profile photo from LinkedIn">
+        </div>
+        <div class="about-profile-links">
+          <a class="about-profile-link" href="https://github.com/odonnellrory" target="_blank" rel="noopener">GitHub</a>
+          <a class="about-profile-link" href="https://www.linkedin.com/in/rory-o-donnell-504980184/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </div>
     <div class="about-content">
       <p class="about-lede">
         I’m an IT Support Technician focused on service desk operations, endpoint support, and hardware lifecycle work. I completed an ICT Technician Apprenticeship with EPA Distinction in February 2026 and enjoy building reliable systems with clear, repeatable processes.
@@ -30,11 +41,14 @@ hide:
         I also build JavaScript projects, including API backends and React frontends. You can see technical walkthroughs and notes across this site, plus selected repositories on GitHub.
       </p>
 
-      <h2>Public Profiles</h2>
-      <p>
-        <a href="https://github.com/odonnellrory" target="_blank" rel="noopener">GitHub</a> |
-        <a href="https://www.linkedin.com/in/rory-o-donnell-504980184/" target="_blank" rel="noopener">LinkedIn</a>
-      </p>
+      <h2>Featured Repositories</h2>
+      <ul>
+        <li><a href="https://github.com/odonnellrory/homelab-infra" target="_blank" rel="noopener">homelab-infra</a> - Homelab Docker Compose services and infrastructure setup.</li>
+        <li><a href="https://github.com/odonnellrory/OS" target="_blank" rel="noopener">OS</a> - Linux dotfiles and system configuration files.</li>
+        <li><a href="https://github.com/odonnellrory/nc-news" target="_blank" rel="noopener">nc-news</a> - NC News frontend application.</li>
+        <li><a href="https://github.com/odonnellrory/be-nc-news" target="_blank" rel="noopener">be-nc-news</a> - NC News backend API.</li>
+      </ul>
+
     </div>
   </section>
 </div>

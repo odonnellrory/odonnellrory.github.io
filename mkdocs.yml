@@ -54,9 +54,9 @@ markdown_extensions:
   - pymdownx.tasklist
 
 extra_css:
-  - landing/home.css?v=20260222i
+  - landing/home.css?v=20260222k
 extra_javascript:
-  - landing/home.js?v=20260222i
+  - landing/home.js?v=20260222k
 
 use_directory_urls: true          
 
