@@ -34,6 +34,13 @@ body.landing-page .md-content__inner:before {
   display: none;
 }
 
+body.landing-page .md-content__title,
+body.landing-page .md-typeset > h1:first-child {
+  display: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 body.landing-page .md-typeset {
   font-family: 'Manrope', sans-serif;
   color: #e8f0ff;
@@ -60,6 +67,15 @@ body.landing-page .md-typeset {
   text-wrap: nowrap;
   text-align: left;
   padding: 0;
+}
+
+.landing-title-link {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.landing-title-link:hover {
+  color: #a7d8ff;
 }
 
 .landing-hero {
@@ -99,6 +115,86 @@ body.landing-page .md-typeset {
   letter-spacing: 0.18em;
   font-weight: 700;
   color: #7ec2ff;
+}
+
+.landing-kicker-link {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.landing-kicker-link:hover {
+  color: #a7d8ff;
+}
+
+.landing-back-link {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid rgba(131, 164, 209, 0.4);
+  text-decoration: none;
+  color: #cfe0fb;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(9, 21, 37, 0.72);
+  backdrop-filter: blur(4px);
+}
+
+.landing-back-link:hover {
+  color: #eaf3ff;
+  border-color: rgba(176, 214, 255, 0.68);
+}
+
+.about-content {
+  margin-top: 0.95rem;
+  padding-top: 0.95rem;
+  border-top: 1px solid rgba(135, 168, 212, 0.26);
+  min-height: clamp(16rem, 40vh, 24rem);
+}
+
+.about-content p {
+  margin: 0;
+  color: #b8c9e6;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.about-content h2 {
+  margin: 1.15rem 0 0.45rem;
+  font-family: 'Sora', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.25;
+  color: #ecf4ff;
+}
+
+.about-content ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: #b8c9e6;
+}
+
+.about-content li + li {
+  margin-top: 0.35rem;
+}
+
+.about-content a {
+  color: #9ad2ff;
+  text-decoration: none;
+}
+
+.about-content a:hover {
+  color: #c7e6ff;
+}
+
+.about-lede {
+  font-size: 1.04rem;
 }
 
 .landing-search {

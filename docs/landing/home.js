@@ -1,14 +1,45 @@
 (function () {
-  var path = window.location.pathname;
+  var landingRoot = document.querySelector('.landing-root');
   var isHome =
-    path === '/' ||
-    path === '/index.html' ||
-    path === '/odonnellrory.github.io' ||
-    path === '/odonnellrory.github.io/' ||
-    path.endsWith('/odonnellrory.github.io/index.html');
+    window.location.pathname === '/' ||
+    window.location.pathname === '/index.html' ||
+    window.location.pathname === '/odonnellrory.github.io' ||
+    window.location.pathname === '/odonnellrory.github.io/' ||
+    window.location.pathname.endsWith('/odonnellrory.github.io/index.html');
 
-  if (isHome) {
+  if (landingRoot) {
     document.body.classList.add('landing-page');
+
+    function stripGeneratedLandingHeadings() {
+      var generatedTitle = document.querySelector('.md-content__title');
+      if (generatedTitle && !generatedTitle.closest('.landing-root')) {
+        generatedTitle.remove();
+      }
+
+      var mdTypeset = document.querySelector('.md-typeset');
+      if (!mdTypeset) {
+        return;
+      }
+
+      var headings = mdTypeset.querySelectorAll('h1');
+      for (var i = 0; i < headings.length; i += 1) {
+        var h1 = headings[i];
+        if (!h1.closest('.landing-root')) {
+          h1.remove();
+        }
+      }
+    }
+    stripGeneratedLandingHeadings();
+
+    if (window.MutationObserver) {
+      var titleObserver = new MutationObserver(function () {
+        stripGeneratedLandingHeadings();
+      });
+      titleObserver.observe(document.body, { childList: true, subtree: true });
+      window.setTimeout(function () {
+        titleObserver.disconnect();
+      }, 2500);
+    }
 
     var landingTitle = document.querySelector('.landing-title');
     if (landingTitle) {
@@ -62,7 +93,7 @@
     }
 
     var landingSearch = document.querySelector('.landing-search');
-    if (landingSearch) {
+    if (landingSearch && isHome) {
       var input = landingSearch.querySelector('.landing-search-input');
       var preview = landingSearch.querySelector('.landing-search-preview');
       var resultsList = landingSearch.querySelector('.landing-search-results');

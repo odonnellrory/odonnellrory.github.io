@@ -1,7 +1,7 @@
 <div class="landing-root">
   <h1 class="landing-title">DOCUMENTATION STATION</h1>
   <section class="landing-hero">
-    <p class="landing-kicker">RORY O'DONNELL</p>
+    <a class="landing-kicker landing-kicker-link" href="about/">RORY O'DONNELL</a>
     <div class="landing-topbar">
       <form class="landing-search" action="#" method="get" role="search" aria-label="Search docs">
         <label class="landing-search-label" for="landing-search-input">Search the docs</label>
@@ -11,7 +11,7 @@
             class="landing-search-input"
             name="q"
             type="search"
-            placeholder="Search Linux, HTB, and journal notes..."
+            placeholder="Search Archive..."
             autocomplete="off"
             required
           >
@@ -23,7 +23,9 @@
       </form>
       <div class="landing-social-row" aria-label="Social links">
         <a class="landing-social-link landing-social-link-primary" href="{{ latest_journal_path() }}">Latest Journal</a>
+        <a class="landing-social-link" href="about/">About Me</a>
         <a class="landing-social-link" href="https://github.com/odonnellrory" target="_blank" rel="noopener">GitHub</a>
+        <a class="landing-social-link" href="https://www.linkedin.com/in/rory-o-donnell-504980184/" target="_blank" rel="noopener">LinkedIn</a>
         <a class="landing-social-link" href="https://github.com/odonnellrory/odonnellrory.github.io" target="_blank" rel="noopener">Repository</a>
       </div>
     </div>
