@@ -46,6 +46,165 @@ body.landing-page .md-typeset {
   color: #e8f0ff;
 }
 
+body.docs-page {
+  font-family: 'Manrope', sans-serif;
+  background-color: #060b12;
+  background:
+    radial-gradient(1200px 700px at 82% -10%, rgba(81, 176, 255, 0.2), transparent 60%),
+    radial-gradient(900px 600px at -8% 12%, rgba(255, 125, 66, 0.14), transparent 56%),
+    linear-gradient(165deg, #060b12 0%, #0d1420 48%, #0a1220 100%);
+  background-attachment: fixed, fixed, fixed;
+  background-repeat: no-repeat;
+  background-size: 160% 130%, 140% 120%, 100% 100%;
+}
+
+body.docs-page .md-header,
+body.docs-page .md-tabs,
+body.docs-page .md-sidebar__scrollwrap,
+body.docs-page .md-footer {
+  background: rgba(8, 19, 34, 0.78);
+  backdrop-filter: blur(8px);
+}
+
+body.docs-page .md-header {
+  border-bottom: 1px solid rgba(151, 182, 230, 0.24);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.24);
+}
+
+body.docs-page .md-tabs {
+  border-bottom: 1px solid rgba(151, 182, 230, 0.2);
+}
+
+body.docs-page .md-main {
+  background: transparent;
+}
+
+body.docs-page .md-main__inner {
+  margin-top: 0;
+}
+
+body.docs-page .md-content {
+  padding-bottom: 2rem;
+}
+
+body.docs-page .md-content__inner {
+  margin: 1.4rem 0 0;
+  padding: clamp(1rem, 3vw, 1.8rem);
+  border: 1px solid rgba(151, 182, 230, 0.26);
+  border-radius: 24px;
+  background:
+    linear-gradient(145deg, rgba(11, 20, 35, 0.95), rgba(12, 29, 49, 0.82)),
+    linear-gradient(125deg, rgba(35, 132, 255, 0.1), rgba(255, 132, 0, 0.08));
+  box-shadow:
+    0 26px 56px rgba(0, 0, 0, 0.38),
+    inset 0 1px 0 rgba(223, 235, 255, 0.08);
+}
+
+body.docs-page .md-content__inner:before {
+  display: none;
+}
+
+body.docs-page .md-typeset {
+  color: #b8c9e6;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+body.docs-page .md-typeset h1,
+body.docs-page .md-typeset h2,
+body.docs-page .md-typeset h3,
+body.docs-page .md-typeset h4 {
+  color: #ecf4ff;
+  font-family: 'Sora', sans-serif;
+}
+
+body.docs-page .md-typeset h1 {
+  font-size: clamp(1.5rem, 3.6vw, 2.15rem);
+}
+
+body.docs-page .md-typeset h2 {
+  font-size: clamp(1.2rem, 2.4vw, 1.55rem);
+}
+
+body.docs-page .md-typeset a {
+  color: #9ad2ff;
+}
+
+body.docs-page .md-typeset a:hover {
+  color: #c7e6ff;
+}
+
+body.docs-page .md-typeset code {
+  background: rgba(9, 21, 37, 0.74);
+  color: #d8e9ff;
+  border-radius: 8px;
+}
+
+body.docs-page .md-typeset pre > code {
+  border-radius: 14px;
+}
+
+body.docs-page .md-search__form {
+  border-radius: 999px;
+  background: rgba(9, 21, 37, 0.72);
+  border: 1px solid rgba(131, 164, 209, 0.32);
+}
+
+body.docs-page .md-nav__title,
+body.docs-page .md-nav__item .md-nav__link,
+body.docs-page .md-nav__item .md-nav__link--active,
+body.docs-page .md-tabs__link,
+body.docs-page .md-header__button,
+body.docs-page .md-header__title,
+body.docs-page .md-typeset .md-content__button {
+  color: #d8e9ff;
+}
+
+body.docs-page .md-nav__item .md-nav__link:hover,
+body.docs-page .md-tabs__link:hover {
+  color: #9ad2ff;
+}
+
+body.docs-page .md-nav__item .md-nav__link--active,
+body.docs-page .md-tabs__item--active .md-tabs__link {
+  color: #9ad2ff;
+}
+
+body.docs-page .md-nav__title {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  margin-bottom: 0.35rem;
+  border-bottom: 1px solid rgba(151, 182, 230, 0.2);
+  background: rgba(8, 19, 34, 0.95);
+  backdrop-filter: blur(8px);
+}
+
+body.docs-page .md-sidebar .md-nav__list {
+  padding-top: 0.2rem;
+}
+
+body.docs-page .md-sidebar--primary .md-sidebar__scrollwrap,
+body.docs-page .md-sidebar--secondary .md-sidebar__scrollwrap {
+  border: 1px solid rgba(151, 182, 230, 0.2);
+  border-radius: 20px;
+}
+
+body.docs-page .md-typeset table:not([class]) {
+  background: rgba(8, 18, 32, 0.62);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+body.docs-page .md-footer-meta,
+body.docs-page .md-footer {
+  border-top: 1px solid rgba(151, 182, 230, 0.2);
+}
+
+body.docs-page .md-footer {
+  display: none;
+}
+
 .landing-root {
   width: min(1200px, 92vw);
   margin: 0 auto;
@@ -565,6 +724,12 @@ body.landing-page .md-typeset {
 }
 
 @media (max-width: 700px) {
+  body.docs-page .md-content__inner {
+    margin-top: 1rem;
+    border-radius: 18px;
+    padding: 1rem;
+  }
+
   .landing-root {
     width: min(1200px, 94vw);
     padding-top: 1.35rem;

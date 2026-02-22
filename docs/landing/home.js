@@ -269,5 +269,7 @@
         rootObserver.observe(document.documentElement, { childList: true, subtree: true });
       }
     }
+  } else {
+    document.body.classList.add('docs-page');
   }
 })();

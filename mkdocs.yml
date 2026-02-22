@@ -15,7 +15,6 @@ theme:
     - content.code.annotate
     - content.code.copy
     - content.tooltips
-    - navigation.footer
     - navigation.indexes
     - navigation.sections
     - navigation.tabs
@@ -65,6 +64,7 @@ strict: true
 
 # Social
 extra:
+  generator: false
   social:
     - icon: fontawesome/brands/git-alt
       link: https://github.com/odonnellrory
