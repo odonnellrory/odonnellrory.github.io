@@ -44,6 +44,18 @@ body.landing-page .md-typeset {
   padding: clamp(2.4rem, 5vw, 5rem) 0 clamp(2rem, 5vw, 4rem);
 }
 
+.landing-title {
+  margin: 0 0 0.95rem;
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(1.7rem, 4.8vw, 3.9rem);
+  line-height: 1.03;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #f2f7ff;
+  white-space: nowrap;
+  text-wrap: nowrap;
+}
+
 .landing-hero {
   padding: clamp(1.6rem, 4vw, 2.4rem);
   border: 1px solid rgba(151, 182, 230, 0.28);
@@ -78,26 +90,6 @@ body.landing-page .md-typeset {
   letter-spacing: 0.18em;
   font-weight: 700;
   color: #7ec2ff;
-}
-
-.landing-hero h1 {
-  margin: 0.55rem 0 0.8rem;
-  font-family: 'Sora', sans-serif;
-  font-size: clamp(1.7rem, 4.8vw, 3.9rem);
-  line-height: 1.03;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  color: #f2f7ff;
-  white-space: nowrap;
-  text-wrap: nowrap;
-}
-
-.landing-sub {
-  margin: 0;
-  max-width: 63ch;
-  font-size: clamp(0.98rem, 2vw, 1.2rem);
-  line-height: 1.6;
-  color: #b6c7e4;
 }
 
 .landing-search {

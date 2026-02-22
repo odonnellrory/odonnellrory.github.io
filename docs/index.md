@@ -1,8 +1,8 @@
 <div class="landing-root">
-<h1>DOCUMENTATION STATION</h1>
+  <h1 class="landing-title">DOCUMENTATION STATION</h1>
   <section class="landing-hero">
     <p class="landing-kicker">RORY O'DONNELL</p>
-        <div class="landing-topbar">
+    <div class="landing-topbar">
       <form class="landing-search" action="search/" method="get" role="search" aria-label="Search docs">
         <label class="landing-search-label" for="landing-search-input">Search the docs</label>
         <div class="landing-search-row">
@@ -19,9 +19,9 @@
         </div>
       </form>
       <div class="landing-social-row" aria-label="Social links">
-        <a class="landing-social-link landing-social-link-primary" href="{{ latest_journal_path() }}">Latest Entry</a>
+        <a class="landing-social-link landing-social-link-primary" href="{{ latest_journal_path() }}">Latest Journal</a>
         <a class="landing-social-link" href="https://github.com/odonnellrory" target="_blank" rel="noopener">GitHub</a>
-        <a class="landing-social-link" href="https://github.com/odonnellrory/odonnellrory.github.io" target="_blank" rel="noopener">Repo</a>
+        <a class="landing-social-link" href="https://github.com/odonnellrory/odonnellrory.github.io" target="_blank" rel="noopener">Repository</a>
       </div>
     </div>
   </section>

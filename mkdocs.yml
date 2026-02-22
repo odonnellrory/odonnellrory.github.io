@@ -54,7 +54,7 @@ markdown_extensions:
   - pymdownx.tasklist
 
 extra_css:
-  - stylesheets/home.css
+  - stylesheets/home.css?v=20260222
 extra_javascript:
   - javascripts/home.js
 
