@@ -18,6 +18,7 @@ theme:
     - navigation.indexes
     - navigation.sections
     - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.top
     - navigation.tracking
     - search.highlight
@@ -53,7 +54,7 @@ markdown_extensions:
   - pymdownx.tasklist
 
 extra_css:
-  - landing/home.css?v=20260222k
+  - landing/home.css?v=20260222q
 extra_javascript:
   - landing/home.js?v=20260222k
 

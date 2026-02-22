@@ -62,17 +62,27 @@ body.docs-page .md-header,
 body.docs-page .md-tabs,
 body.docs-page .md-sidebar__scrollwrap,
 body.docs-page .md-footer {
-  background: rgba(8, 19, 34, 0.78);
+  background: #081322;
   backdrop-filter: blur(8px);
 }
 
+/* Keep header + tabs as one continuous top bar (no seam from blur sampling). */
+body.docs-page .md-header,
+body.docs-page .md-tabs {
+  background: #081322;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
 body.docs-page .md-header {
-  border-bottom: 1px solid rgba(151, 182, 230, 0.24);
+  border-bottom: 0;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.24);
 }
 
 body.docs-page .md-tabs {
+  border-top: 0;
   border-bottom: 1px solid rgba(151, 182, 230, 0.2);
+  box-shadow: none;
 }
 
 body.docs-page .md-main {
@@ -178,6 +188,73 @@ body.docs-page .md-nav__title {
   border-bottom: 1px solid rgba(151, 182, 230, 0.2);
   background: rgba(8, 19, 34, 0.95);
   backdrop-filter: blur(8px);
+}
+
+body.docs-page .md-sidebar .md-nav__title {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
+
+body.docs-page .md-sidebar .md-nav__title::before,
+body.docs-page .md-sidebar .md-nav__title::after {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+body.docs-page .md-sidebar--primary .md-nav__title {
+  background: transparent;
+  backdrop-filter: none;
+}
+
+body.docs-page .md-sidebar--secondary .md-nav__title {
+  background: transparent;
+  backdrop-filter: none;
+}
+
+body.docs-page .md-sidebar--primary .md-nav__title[for],
+body.docs-page .md-sidebar--primary .md-nav--primary > .md-nav__title,
+body.docs-page .md-sidebar--primary .md-nav--lifted > .md-nav__list > .md-nav__item--active > .md-nav__link {
+  background: transparent !important;
+  backdrop-filter: none !important;
+}
+
+body.docs-page .md-sidebar--secondary .md-nav__title[for],
+body.docs-page .md-sidebar--secondary .md-nav--secondary > .md-nav__title,
+body.docs-page .md-sidebar--secondary .md-nav--lifted > .md-nav__list > .md-nav__item--active > .md-nav__link {
+  background: transparent !important;
+  backdrop-filter: none !important;
+}
+
+body.docs-page .md-sidebar--primary .md-nav__item--active > .md-nav__link,
+body.docs-page .md-sidebar--primary .md-nav__link--active,
+body.docs-page .md-sidebar--primary .md-nav--lifted > .md-nav__list > .md-nav__item--active > .md-nav__link {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+body.docs-page .md-sidebar .md-nav__item--active > .md-nav__link,
+body.docs-page .md-sidebar .md-nav__link--active,
+body.docs-page .md-sidebar .md-nav--lifted > .md-nav__list > .md-nav__item--active > .md-nav__link {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+body.docs-page .md-sidebar--primary .md-nav__item--active > .md-nav__link::before,
+body.docs-page .md-sidebar--primary .md-nav__item--active > .md-nav__link::after,
+body.docs-page .md-sidebar--primary .md-nav__link--active::before,
+body.docs-page .md-sidebar--primary .md-nav__link--active::after {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+body.docs-page .md-sidebar .md-nav__item--active > .md-nav__link::before,
+body.docs-page .md-sidebar .md-nav__item--active > .md-nav__link::after,
+body.docs-page .md-sidebar .md-nav__link--active::before,
+body.docs-page .md-sidebar .md-nav__link--active::after {
+  background: transparent !important;
+  box-shadow: none !important;
 }
 
 body.docs-page .md-sidebar .md-nav__list {
