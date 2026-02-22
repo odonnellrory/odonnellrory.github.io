@@ -1,5 +1,5 @@
 nav:
   - "~": index.md
-  - Archive: 00-archive
-  - Cybersecurity: 01-cybersecurity
-  - Linux: 02-linux
+  - Blog: 00-blog
+  - Docs: 01-docs
+  - Cyber-Sec: 02-cybersecurity

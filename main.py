@@ -4,10 +4,10 @@ from datetime import datetime
 def define_env(env):
     @env.macro
     def latest_journal_path():
-        journal_dir = Path("docs/00-archive")
+        journal_dir = Path("docs/00-blog")
         files = list(journal_dir.glob("*.md"))
         if not files:
-            return "00-archive/"
+            return "00-blog/"
 
         dated_files = []
         for file in files:
@@ -19,7 +19,7 @@ def define_env(env):
 
         if dated_files:
             latest_stem = max(dated_files, key=lambda item: item[0])[1]
-            return f"00-archive/{latest_stem}/"
+            return f"00-blog/{latest_stem}/"
 
         latest_file = max(files, key=lambda f: f.stat().st_mtime)
-        return f"00-archive/{latest_file.stem}/"
+        return f"00-blog/{latest_file.stem}/"

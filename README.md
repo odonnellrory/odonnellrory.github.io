@@ -8,7 +8,7 @@ Originally I created this to document my homelab, but it has become a blog with 
 
 The nav bar at the top of the site is generated based on my folder structure and the .pages files.  The .pages files, found in docs/ and each directory recursively after docs/, are where you tell MkDocs where to direct the page.
 
-Notes are in /docs/00-archive/.
+Notes are in /docs/00-blog/.
 
 ---
 

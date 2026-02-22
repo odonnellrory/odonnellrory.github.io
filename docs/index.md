@@ -11,7 +11,7 @@
             class="landing-search-input"
             name="q"
             type="search"
-            placeholder="Search Archive..."
+            placeholder="Search Blog..."
             autocomplete="off"
             required
           >
@@ -32,18 +32,18 @@
   </section>
 
   <section class="landing-panels" aria-label="Core sections">
-    <a class="landing-panel" href="02-linux/00-installationguide/">
-      <h2>Linux</h2>
+    <a class="landing-panel" href="01-docs/00-installationguide/">
+      <h2>Docs</h2>
       <p>Linux, Git, Docker, networking...</p>
     </a>
 
-    <a class="landing-panel" href="01-cybersecurity/01-brutus/">
+    <a class="landing-panel" href="02-cybersecurity/01-brutus/">
       <h2>Security</h2>
       <p>Hack The Box walkthroughs.</p>
     </a>
 
     <a class="landing-panel" href="{{ latest_journal_path() }}">
-      <h2>Archive</h2>
+      <h2>Blog</h2>
       <p>Homelab notes, AI responses, blog journal.</p>
     </a>
 

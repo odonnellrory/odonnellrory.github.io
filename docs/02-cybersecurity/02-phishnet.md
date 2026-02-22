@@ -1,6 +1,6 @@
 # [PhishNet](https://app.hackthebox.com/sherlocks/PhishNet)
 [PhishNet](https://labs.hackthebox.com/achievement/sherlock/2582863/985)
-![PhishNet Complete](../00-archive/Images/2025-09-06/phishnetcomplete.png)
+![PhishNet Complete](../00-blog/Images/2025-09-06/phishnetcomplete.png)
 
 
 In this sherlock you get a single file.  email.eml.  It is my task to examine the file and answer the questions.

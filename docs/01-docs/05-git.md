@@ -35,8 +35,8 @@ A Git hook solves this cleanly.
 ### Example: pre-commit hook
 
 ```bash
-cp README.md docs/02-linux/00-installationguide.md
-git add docs/02-linux/00-installationguide.md
+cp README.md docs/01-docs/00-installationguide.md
+git add docs/01-docs/00-installationguide.md
 ````
 
 This runs automatically before every commit.

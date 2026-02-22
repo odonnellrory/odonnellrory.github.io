@@ -1,6 +1,6 @@
 # [Brutus](https://app.hackthebox.com/sherlocks/Brutus) 
 [Brutus Complete](https://labs.hackthebox.com/achievement/sherlock/2582863/631)
-![Brutus Complete](../00-archive/Images/2025-09-06/brutuscomplete.png)
+![Brutus Complete](../00-blog/Images/2025-09-06/brutuscomplete.png)
 
 ---
 
