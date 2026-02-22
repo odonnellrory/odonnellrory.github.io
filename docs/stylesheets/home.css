@@ -8,7 +8,8 @@ body.landing-page .md-header,
 body.landing-page .md-tabs,
 body.landing-page .md-sidebar,
 body.landing-page .md-footer,
-body.landing-page .md-top {
+body.landing-page .md-top,
+body.landing-page .md-content__button {
   display: none;
 }
 
@@ -45,18 +46,24 @@ body.landing-page .md-typeset {
 }
 
 .landing-title {
+  position: static;
+  width: 100%;
   margin: 0 0 0.95rem;
   font-family: 'Sora', sans-serif;
-  font-size: clamp(1.7rem, 4.8vw, 3.9rem);
+  /* Keep on one line from 320px and up */
+  font-size: min(clamp(0.92rem, 4.7vw, 3.9rem), calc((100vw - 1.5rem) / 22));
   line-height: 1.03;
   font-weight: 800;
   letter-spacing: -0.03em;
   color: #f2f7ff;
   white-space: nowrap;
   text-wrap: nowrap;
+  text-align: left;
+  padding: 0;
 }
 
 .landing-hero {
+  container-type: inline-size;
   position: relative;
   z-index: 20;
   padding: clamp(1.6rem, 4vw, 2.4rem);
@@ -77,7 +84,7 @@ body.landing-page .md-typeset {
 .landing-topbar {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
+  align-items: start;
   gap: 0.8rem;
   margin-bottom: 1.05rem;
   padding-top: 0.95rem;
@@ -97,6 +104,7 @@ body.landing-page .md-typeset {
 .landing-search {
   margin: 0;
   position: relative;
+  min-width: 0;
 }
 
 .landing-search-label {
@@ -112,12 +120,15 @@ body.landing-page .md-typeset {
 }
 
 .landing-search-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
   gap: 0.65rem;
 }
 
 .landing-search-input {
-  flex: 1;
+  width: 100%;
+  min-width: 0;
   min-height: 2.9rem;
   border-radius: 999px;
   border: 1px solid rgba(140, 174, 222, 0.4);
@@ -140,6 +151,7 @@ body.landing-page .md-typeset {
 
 .landing-search-button {
   min-height: 2.9rem;
+  width: auto;
   border-radius: 999px;
   border: 1px solid rgba(140, 174, 222, 0.5);
   background: rgba(14, 30, 51, 0.52);
@@ -148,6 +160,7 @@ body.landing-page .md-typeset {
   font-family: 'Manrope', sans-serif;
   font-size: 0.9rem;
   font-weight: 700;
+  white-space: nowrap;
   cursor: pointer;
   transition: transform 180ms ease, border-color 180ms ease;
 }
@@ -257,6 +270,8 @@ body.landing-page .md-typeset {
   gap: 0.6rem;
   flex-wrap: wrap;
   justify-content: flex-end;
+  align-self: center;
+  max-width: 100%;
 }
 
 .landing-social-link {
@@ -292,14 +307,13 @@ body.landing-page .md-typeset {
   z-index: 1;
   margin-top: 1rem;
   display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
   gap: 0.85rem;
 }
 
 .landing-panel {
-  grid-column: span 6;
-  min-height: 210px;
-  padding: 1.2rem;
+  min-height: clamp(11rem, 24vw, 13.125rem);
+  padding: clamp(1rem, 2.2vw, 1.2rem);
   border-radius: 22px;
   border: 1px solid rgba(151, 182, 230, 0.24);
   background:
@@ -375,20 +389,11 @@ body.landing-page .md-typeset {
   }
 }
 
-@media (max-width: 980px) {
-  .landing-panel {
-    grid-column: span 12;
-  }
-}
-
-@media (max-width: 700px) {
-  .landing-root {
-    width: min(1200px, 94vw);
-  }
-
+@container (max-width: 40rem) {
   .landing-topbar {
     grid-template-columns: 1fr;
     align-items: stretch;
+    gap: 0.9rem;
   }
 
   .landing-social-row {
@@ -396,19 +401,58 @@ body.landing-page .md-typeset {
   }
 
   .landing-search-row {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 
   .landing-search-button {
     width: 100%;
+  }
+}
+
+@media (max-width: 700px) {
+  .landing-root {
+    width: min(1200px, 94vw);
+    padding-top: 1.35rem;
+  }
+
+  .landing-title {
+    font-size: min(clamp(0.9rem, 4.9vw, 2.3rem), calc((100vw - 1.5rem) / 22));
+    line-height: 1.08;
+    white-space: nowrap;
+    text-wrap: nowrap;
   }
 
   .landing-search-preview {
     top: calc(100% + 0.35rem);
   }
 
+  .landing-panel {
+    min-height: 0;
+  }
+
   .landing-hero,
   .landing-panel {
     border-radius: 18px;
+  }
+}
+
+@media (max-width: 430px) {
+  .landing-root {
+    width: 92vw;
+    padding-top: 1rem;
+  }
+
+  .landing-hero,
+  .landing-panel {
+    padding: 1rem;
+  }
+
+  .landing-title {
+    font-size: min(clamp(0.86rem, 4.7vw, 1.9rem), calc((100vw - 1.5rem) / 22));
+  }
+
+  .landing-social-link {
+    width: 100%;
+    justify-content: center;
   }
 }

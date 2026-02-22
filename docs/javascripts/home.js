@@ -10,6 +10,57 @@
   if (isHome) {
     document.body.classList.add('landing-page');
 
+    var landingTitle = document.querySelector('.landing-title');
+    if (landingTitle) {
+      var fitRaf = null;
+      var minTitlePx = 11;
+
+      function fitLandingTitle() {
+        landingTitle.style.removeProperty('font-size');
+        landingTitle.style.removeProperty('letter-spacing');
+
+        var available = landingTitle.clientWidth;
+        if (!available) {
+          return;
+        }
+
+        var currentPx = parseFloat(window.getComputedStyle(landingTitle).fontSize) || 16;
+        var measured = landingTitle.scrollWidth;
+        if (measured <= available) {
+          return;
+        }
+
+        var nextPx = Math.max(minTitlePx, Math.floor(currentPx * (available / measured) * 0.985));
+        landingTitle.style.fontSize = nextPx + 'px';
+
+        // Final guard for edge cases on very narrow/DPR-heavy devices.
+        while (landingTitle.scrollWidth > available && nextPx > minTitlePx) {
+          nextPx -= 1;
+          landingTitle.style.fontSize = nextPx + 'px';
+        }
+
+        if (landingTitle.scrollWidth > available) {
+          landingTitle.style.letterSpacing = '-0.04em';
+        }
+      }
+
+      function scheduleFitTitle() {
+        if (fitRaf) {
+          window.cancelAnimationFrame(fitRaf);
+        }
+        fitRaf = window.requestAnimationFrame(fitLandingTitle);
+      }
+
+      window.addEventListener('resize', scheduleFitTitle, { passive: true });
+      window.addEventListener('orientationchange', scheduleFitTitle, { passive: true });
+      window.addEventListener('load', scheduleFitTitle);
+      scheduleFitTitle();
+
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(scheduleFitTitle);
+      }
+    }
+
     var landingSearch = document.querySelector('.landing-search');
     if (landingSearch) {
       var input = landingSearch.querySelector('.landing-search-input');
