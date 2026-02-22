@@ -16,11 +16,17 @@
       var preview = landingSearch.querySelector('.landing-search-preview');
       var resultsList = landingSearch.querySelector('.landing-search-results');
       var lastResults = [];
-      var nativeToggle = document.querySelector('#__search');
-      var nativeInput = document.querySelector('[data-md-component="search-query"]');
-      var nativeResult = document.querySelector('[data-md-component="search-result"]');
+      var nativeToggle = null;
+      var nativeInput = null;
+      var nativeResult = null;
       var observer = null;
       var renderTimer = null;
+
+      function refreshNativeHandles() {
+        nativeToggle = document.querySelector('#__search');
+        nativeInput = document.querySelector('[data-md-component="search-query"]');
+        nativeResult = document.querySelector('[data-md-component="search-result"]');
+      }
 
       function hidePreview() {
         if (preview) {
@@ -29,6 +35,7 @@
       }
 
       function renderFromNative() {
+        refreshNativeHandles();
         if (!resultsList || !preview) {
           return;
         }
@@ -95,6 +102,7 @@
       }
 
       function queryNativeSearch(query) {
+        refreshNativeHandles();
         if (!nativeInput || !nativeResult) {
           return false;
         }
@@ -122,6 +130,7 @@
       }
 
       function renderResults(query) {
+        refreshNativeHandles();
         var trimmed = (query || '').trim();
         if (!trimmed) {
           resultsList.innerHTML = '';
@@ -138,6 +147,7 @@
 
       if (input) {
         input.addEventListener('focus', function () {
+          refreshNativeHandles();
           renderResults(input.value || '');
         });
         input.addEventListener('input', function () {
@@ -162,13 +172,19 @@
         }
       });
 
-      if (nativeResult && window.MutationObserver) {
-        observer = new MutationObserver(function () {
-          if (input && input.value && input.value.trim()) {
-            renderFromNative();
+      if (window.MutationObserver) {
+        var rootObserver = new MutationObserver(function () {
+          refreshNativeHandles();
+          if (nativeResult && !observer) {
+            observer = new MutationObserver(function () {
+              if (input && input.value && input.value.trim()) {
+                renderFromNative();
+              }
+            });
+            observer.observe(nativeResult, { childList: true, subtree: true });
           }
         });
-        observer.observe(nativeResult, { childList: true, subtree: true });
+        rootObserver.observe(document.documentElement, { childList: true, subtree: true });
       }
     }
   }
