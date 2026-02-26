@@ -4,7 +4,7 @@ hide:
 ---
 
 <div class="landing-root">
-  <a class="landing-back-link" href="/">Back to Home</a>
+  <a class="landing-back-link" href="../">Back to Home</a>
   <section class="landing-hero">
     <div class="about-header">
       <p class="landing-kicker">About Me</p>
@@ -26,6 +26,5 @@ hide:
         <li><a href="https://github.com/odonnellrory/be-nc-news" target="_blank" rel="noopener">be-nc-news</a> - NC News backend API.</li>
       </ul>
 
-    </div>
   </section>
 </div>
