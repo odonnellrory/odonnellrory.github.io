@@ -18,12 +18,7 @@ hide:
         </div>
       </div>
     </div>
-       <h2>Projects</h2>
-      <p>
-        I've also built JavaScript projects, including API backends and React frontends. You can see technical notes on this site, plus repositories on GitHub.
-      </p>
-
-      <h2>Featured Repositories</h2>
+        <h2>Featured Repositories</h2>
       <ul>
         <li><a href="https://github.com/odonnellrory/homelab-infra" target="_blank" rel="noopener">homelab-infra</a> - Homelab Docker Compose services and infrastructure setup.</li>
         <li><a href="https://github.com/odonnellrory/OS" target="_blank" rel="noopener">OS</a> - Linux dotfiles and system configuration files.</li>
