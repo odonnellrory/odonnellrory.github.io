@@ -1,9 +1,9 @@
 from datetime import datetime
 from pathlib import Path
 
-BLOG_DIR = Path("docs/00-blog")
+BLOG_DIR = Path("docs/00-journal")
 DATE_FORMAT = "%Y-%m-%d"
-BLOG_ROUTE_PREFIX = "00-blog"
+BLOG_ROUTE_PREFIX = "00-journal"
 
 
 def _stem_to_date(stem: str):

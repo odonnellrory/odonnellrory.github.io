@@ -1,5 +1,5 @@
 nav:
   - "~": index.md
-  - Blog: 00-blog
+  - Blog: 00-journal
   - Docs: 01-docs
   - Cyber-Sec: 02-cybersecurity
