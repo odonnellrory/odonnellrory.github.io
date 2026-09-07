@@ -9,11 +9,53 @@
   stripGeneratedLandingHeadings();
   observeGeneratedHeadingsBriefly();
   setupLandingTitleFit();
-
   if (isHomePagePath(window.location.pathname)) {
     setupLandingSearch();
+    setupLatestJournalLink();
   }
 })();
+
+function setupLatestJournalLink() {
+  const dateRegex = /\/?00-journal\/(\d{4}-\d{2}-\d{2})\/?/;
+
+  const tryUpdate = () => {
+    const anchors = Array.from(document.querySelectorAll('a[href*="00-journal"]'));
+    if (!anchors.length) return false;
+
+    const dated = [];
+    for (const a of anchors) {
+      const href = a.getAttribute('href') || '';
+      const m = href.match(dateRegex);
+      if (m) {
+        const d = new Date(m[1]);
+        if (!Number.isNaN(d.getTime())) {
+          dated.push({ path: href, date: d });
+        }
+      }
+    }
+
+    if (!dated.length) return false;
+
+    dated.sort((x, y) => y.date - x.date);
+    const latestPath = dated[0].path;
+
+    document.querySelectorAll('.landing-social-link.landing-social-link-primary').forEach((el) => {
+      el.setAttribute('href', latestPath);
+    });
+
+    return true;
+  };
+
+  if (tryUpdate()) return;
+  if (!window.MutationObserver) return;
+
+  const observer = new MutationObserver(() => {
+    if (tryUpdate()) {
+      observer.disconnect();
+    }
+  });
+  observer.observe(document.documentElement, { childList: true, subtree: true });
+}
 
 function isHomePagePath(pathname) {
   return (
