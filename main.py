@@ -25,5 +25,5 @@ def define_env(env):
     def latest_journal_path():
         files = tuple(BLOG_DIR.glob("*.md"))
         if not files:
-            return f"{BLOG_ROUTE_PREFIX}/"
-        return f"{BLOG_ROUTE_PREFIX}/{_latest_blog_stem(files)}/"
+            return f"/{BLOG_ROUTE_PREFIX}/"
+        return f"/{BLOG_ROUTE_PREFIX}/{_latest_blog_stem(files)}/"

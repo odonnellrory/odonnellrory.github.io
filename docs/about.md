@@ -9,9 +9,6 @@ hide:
     <div class="about-header">
       <p class="landing-kicker">About Me</p>
       <div class="about-profile">
-        <div class="about-avatar">
-          <img class="about-avatar-image" src="https://media.licdn.com/dms/image/v2/D4E03AQFeUjahScaD-Q/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1722018789463?e=1773273600&v=beta&t=N9VL1NKMkDr5glso1qjikPyNAZE-i7mA03OnFKuCFjI" alt="Rory O'Donnell profile photo from LinkedIn">
-        </div>
         <div class="about-profile-links">
           <a class="about-profile-link" href="https://github.com/odonnellrory" target="_blank" rel="noopener">GitHub</a>
           <a class="about-profile-link" href="https://www.linkedin.com/in/rory-o-donnell-504980184/" target="_blank" rel="noopener">LinkedIn</a>

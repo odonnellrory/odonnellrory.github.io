@@ -42,7 +42,7 @@
       <p>Hack The Box walkthroughs.</p>
     </a>
 
-    <a class="landing-panel" href="{{ latest_journal_path() }}">
+    <a class="landing-panel" href="00-journal/">
       <h2>Blog</h2>
       <p>Homelab notes, AI responses, blog journal.</p>
     </a>
