@@ -1,0 +1,13 @@
+/* Site-wide layout fixes kept separate from landing-page component styles. */
+
+/* Keep decorative gradients anchored to the viewport while content scrolls. */
+body.landing-page .md-main,
+body.docs-page {
+  background-attachment: fixed;
+}
+
+/* Material's footer is not useful here and visually covers the sidebars at page end. */
+body.docs-page .md-footer {
+  display: none;
+}
+

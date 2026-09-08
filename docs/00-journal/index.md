@@ -1,16 +1,28 @@
----
-hide:
-  - title
----
+# Journal / Blog
 
-<div class="landing-root">
-  <a class="landing-back-link" href="../">Back to Home</a>
-  <section class="landing-hero">
-    <p class="landing-kicker">Journal</p>
-    <h1>Journal / Blog</h1>
-    <p>This section contains dated journal entries and short blog posts about homelab notes, experiments, and personal project updates.</p>
-    <p><a class="landing-social-link landing-social-link-primary" href="{{ latest_journal_path() }}">Read the latest entry</a></p>
-    <h2>About the journal</h2>
-    <p>Entries are stored as dated Markdown files inside this folder. Use the list on the left (or the date-based links) to browse older posts.</p>
-  </section>
-</div>
+This is the index for my journal and shorter blog posts: homelab changes,
+experiments, things I learned, project notes, and the occasional write-up that
+doesn't belong in the main documentation.
+
+[Read the latest journal entry]({{ latest_journal_path() }})
+
+## What you'll find here
+
+- **Homelab updates** — infrastructure changes, failures, rebuilds, and lessons learned.
+- **Experiments** — software, hardware, networking, automation, and AI tooling.
+- **Project notes** — work in progress that is useful enough to keep, but not polished into a guide.
+- **General journal entries** — dated notes and technical observations.
+
+## Browsing the journal
+
+The journal is part of the normal MkDocs site rather than a separate landing
+page. Use the navigation on the left to move through dated entries, the table
+of contents on the right when an entry has multiple sections, or the main
+search at the top to find something specific.
+
+Individual entries remain dated Markdown pages, while this page acts as the
+overview for the journal as a whole.
+
+## Latest entry
+
+The button above is generated at build time and always points to the newest

@@ -55,6 +55,7 @@ markdown_extensions:
 
 extra_css:
   - landing/home.css
+  - landing/fixes.css
 extra_javascript:
   - landing/home.js
 
