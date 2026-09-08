@@ -1,356 +1,154 @@
 (function () {
   const landingRoot = document.querySelector('.landing-root');
-  if (!landingRoot) {
-    document.body.classList.add('docs-page');
-    return;
-  }
+  document.body.classList.add(landingRoot ? 'landing-page' : 'docs-page');
 
-  document.body.classList.add('landing-page');
-  stripGeneratedLandingHeadings();
-  observeGeneratedHeadingsBriefly();
-  setupLandingTitleFit();
-  if (isHomePagePath(window.location.pathname)) {
-    setupLandingSearch();
-    setupLatestJournalLink();
+  const landingSearch = document.querySelector('.landing-search');
+  if (landingSearch) {
+    setupLandingSearch(landingSearch);
   }
 })();
 
-function setupLatestJournalLink() {
-  const dateRegex = /\/?00-journal\/(\d{4}-\d{2}-\d{2})\/?/;
+function setupLandingSearch(form) {
+  const input = form.querySelector('.landing-search-input');
+  const preview = form.querySelector('.landing-search-preview');
+  const list = form.querySelector('.landing-search-results');
+  if (!input || !preview || !list) return;
 
-  const tryUpdate = () => {
-    const anchors = Array.from(document.querySelectorAll('a[href*="00-journal"]'));
-    if (!anchors.length) return false;
-
-    const dated = [];
-    for (const a of anchors) {
-      const href = a.getAttribute('href') || '';
-      const m = href.match(dateRegex);
-      if (m) {
-        const d = new Date(m[1]);
-        if (!Number.isNaN(d.getTime())) {
-          dated.push({ path: href, date: d });
-        }
-      }
-    }
-
-    if (!dated.length) return false;
-
-    dated.sort((x, y) => y.date - x.date);
-    const latestPath = dated[0].path;
-
-    document.querySelectorAll('.landing-social-link.landing-social-link-primary').forEach((el) => {
-      el.setAttribute('href', latestPath);
-    });
-
-    return true;
-  };
-
-  if (tryUpdate()) return;
-  if (!window.MutationObserver) return;
-
-  const observer = new MutationObserver(() => {
-    if (tryUpdate()) {
-      observer.disconnect();
-    }
-  });
-  observer.observe(document.documentElement, { childList: true, subtree: true });
-}
-
-function isHomePagePath(pathname) {
-  return (
-    pathname === '/' ||
-    pathname === '/index.html' ||
-    pathname === '/odonnellrory.github.io' ||
-    pathname === '/odonnellrory.github.io/' ||
-    pathname.endsWith('/odonnellrory.github.io/index.html')
-  );
-}
-
-function stripGeneratedLandingHeadings() {
-  const generatedTitle = document.querySelector('.md-content__title');
-  if (generatedTitle && !generatedTitle.closest('.landing-root')) {
-    generatedTitle.remove();
-  }
-
-  const mdTypeset = document.querySelector('.md-typeset');
-  if (!mdTypeset) {
-    return;
-  }
-
-  const headings = mdTypeset.querySelectorAll('h1');
-  headings.forEach((h1) => {
-    if (!h1.closest('.landing-root')) {
-      h1.remove();
-    }
-  });
-}
-
-function observeGeneratedHeadingsBriefly() {
-  if (!window.MutationObserver) {
-    return;
-  }
-
-  const titleObserver = new MutationObserver(stripGeneratedLandingHeadings);
-  titleObserver.observe(document.body, { childList: true, subtree: true });
-  window.setTimeout(() => titleObserver.disconnect(), 2500);
-}
-
-function setupLandingTitleFit() {
-  const landingTitle = document.querySelector('.landing-title');
-  if (!landingTitle) {
-    return;
-  }
-
-  let fitRaf = null;
-  const minTitlePx = 11;
-
-  const fitLandingTitle = () => {
-    landingTitle.style.removeProperty('font-size');
-    landingTitle.style.removeProperty('letter-spacing');
-
-    const available = landingTitle.clientWidth;
-    if (!available) {
-      return;
-    }
-
-    const currentPx = parseFloat(window.getComputedStyle(landingTitle).fontSize) || 16;
-    const measured = landingTitle.scrollWidth;
-    if (measured <= available) {
-      return;
-    }
-
-    let nextPx = Math.max(minTitlePx, Math.floor(currentPx * (available / measured) * 0.985));
-    landingTitle.style.fontSize = `${nextPx}px`;
-
-    while (landingTitle.scrollWidth > available && nextPx > minTitlePx) {
-      nextPx -= 1;
-      landingTitle.style.fontSize = `${nextPx}px`;
-    }
-
-    if (landingTitle.scrollWidth > available) {
-      landingTitle.style.letterSpacing = '-0.04em';
-    }
-  };
-
-  const scheduleFit = () => {
-    if (fitRaf) {
-      window.cancelAnimationFrame(fitRaf);
-    }
-    fitRaf = window.requestAnimationFrame(fitLandingTitle);
-  };
-
-  window.addEventListener('resize', scheduleFit, { passive: true });
-  window.addEventListener('orientationchange', scheduleFit, { passive: true });
-  window.addEventListener('load', scheduleFit);
-  scheduleFit();
-
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(scheduleFit);
-  }
-}
-
-function setupLandingSearch() {
-  const landingSearch = document.querySelector('.landing-search');
-  if (!landingSearch) {
-    return;
-  }
-
-  const input = landingSearch.querySelector('.landing-search-input');
-  const preview = landingSearch.querySelector('.landing-search-preview');
-  const resultsList = landingSearch.querySelector('.landing-search-results');
-  if (!input || !preview || !resultsList) {
-    return;
-  }
-
+  const indexUrl = new URL('search/search_index.json', document.baseURI);
   const MAX_RESULTS = 6;
-  const MAX_RETRY = 10;
-  const RETRY_DELAY_MS = 50;
-  const state = {
-    lastResults: [],
-    nativeToggle: null,
-    nativeInput: null,
-    nativeResult: null,
-    renderTimer: null,
-    resultObserver: null,
+  let docsPromise;
+  let lastResults = [];
+  let timer;
+
+  const textOnly = (value = '') => {
+    const node = document.createElement('div');
+    node.innerHTML = value;
+    return (node.textContent || '').replace(/\s+/g, ' ').trim();
   };
 
-  const refreshNativeHandles = () => {
-    state.nativeToggle = document.querySelector('#__search');
-    state.nativeInput = document.querySelector('[data-md-component="search-query"]');
-    state.nativeResult = document.querySelector('[data-md-component="search-result"]');
+  const loadDocs = () => {
+    docsPromise ??= fetch(indexUrl)
+      .then((response) => {
+        if (!response.ok) throw new Error(`Search index: ${response.status}`);
+        return response.json();
+      })
+      .then((data) => data.docs || []);
+    return docsPromise;
   };
 
-  const hidePreview = () => {
+  const hide = () => {
     preview.hidden = true;
   };
 
-  const clearResults = () => {
-    resultsList.innerHTML = '';
-    state.lastResults = [];
-  };
-
-  const setEmptyResults = () => {
-    const emptyItem = document.createElement('li');
-    const emptyText = document.createElement('span');
-    emptyText.className = 'landing-search-result-empty';
-    emptyText.textContent = 'No matching pages';
-    emptyItem.appendChild(emptyText);
-    resultsList.appendChild(emptyItem);
+  const showMessage = (message) => {
+    list.replaceChildren();
+    const item = document.createElement('li');
+    const text = document.createElement('span');
+    text.className = 'landing-search-result-empty';
+    text.textContent = message;
+    item.appendChild(text);
+    list.appendChild(item);
     preview.hidden = false;
   };
 
-  const getNativeLinks = () => {
-    if (!state.nativeResult) {
-      return [];
-    }
-    const selectors = [
-      '.md-search-result__link',
-      '.md-search-result a[href]',
-      'a[href]',
-    ];
-    for (const selector of selectors) {
-      const links = state.nativeResult.querySelectorAll(selector);
-      if (links.length) {
-        return links;
-      }
-    }
-    return [];
-  };
+  const searchDocs = (docs, query) => {
+    const terms = query.toLowerCase().split(/\s+/).filter(Boolean);
+    const ranked = [];
 
-  const renderFromNative = () => {
-    refreshNativeHandles();
-    if (!state.nativeResult) {
-      return;
+    for (const doc of docs) {
+      if (!doc.location) continue;
+
+      const title = textOnly(doc.title);
+      const text = textOnly(doc.text);
+      const titleLower = title.toLowerCase();
+      const haystack = `${titleLower} ${text.toLowerCase()}`;
+      if (!terms.every((term) => haystack.includes(term))) continue;
+
+      const score = terms.reduce(
+        (total, term) => total + (titleLower.includes(term) ? 10 : 1),
+        0,
+      );
+      ranked.push({ location: doc.location, title, text, score });
     }
 
-    clearResults();
-    const nativeLinks = getNativeLinks();
-    if (!nativeLinks.length) {
-      setEmptyResults();
-      return;
-    }
+    ranked.sort((a, b) => b.score - a.score || a.title.localeCompare(b.title));
 
     const seen = new Set();
-    for (const nativeLink of nativeLinks) {
-      if (state.lastResults.length >= MAX_RESULTS) {
-        break;
-      }
+    return ranked.filter((result) => {
+      const page = result.location.split('#')[0];
+      if (seen.has(page)) return false;
+      seen.add(page);
+      return true;
+    }).slice(0, MAX_RESULTS);
+  };
 
-      const href = nativeLink.getAttribute('href') || '#';
-      if (!href || href === '#' || href.startsWith('javascript:') || seen.has(href)) {
-        continue;
-      }
+  const render = (results) => {
+    lastResults = results;
+    list.replaceChildren();
 
-      seen.add(href);
-      state.lastResults.push({ location: href });
+    if (!results.length) {
+      showMessage('No matching pages');
+      return;
+    }
 
-      const itemNode = nativeLink.closest('article, li, .md-search-result__item');
-      const teaserNode = itemNode ? itemNode.querySelector('.md-search-result__teaser') : null;
-      const teaserText = teaserNode ? teaserNode.textContent.trim().replace(/\s+/g, ' ') : '';
-
+    for (const result of results) {
       const item = document.createElement('li');
       const link = document.createElement('a');
       const title = document.createElement('span');
       const meta = document.createElement('span');
 
       link.className = 'landing-search-result';
-      link.href = href;
-
+      link.href = result.location;
       title.className = 'landing-search-result-title';
-      title.textContent = nativeLink.textContent.trim() || href;
-
+      title.textContent = result.title || result.location;
       meta.className = 'landing-search-result-meta';
-      meta.textContent = teaserText;
+      meta.textContent = result.text.slice(0, 140);
 
-      link.appendChild(title);
-      link.appendChild(meta);
+      link.append(title, meta);
       item.appendChild(link);
-      resultsList.appendChild(item);
+      list.appendChild(item);
     }
 
     preview.hidden = false;
   };
 
-  const queryNativeSearch = (query) => {
-    refreshNativeHandles();
-    if (!state.nativeInput || !state.nativeResult) {
-      return false;
-    }
-
-    if (state.nativeToggle) {
-      state.nativeToggle.checked = true;
-    }
-
-    state.nativeInput.value = query;
-    state.nativeInput.dispatchEvent(new Event('input', { bubbles: true }));
-    state.nativeInput.dispatchEvent(new Event('change', { bubbles: true }));
-    state.nativeInput.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true, key: 'a' }));
-    return true;
-  };
-
-  const scheduleNativeRender = (attempt) => {
-    if (state.renderTimer) {
-      window.clearTimeout(state.renderTimer);
-    }
-
-    state.renderTimer = window.setTimeout(() => {
-      renderFromNative();
-      if (!state.lastResults.length && attempt < MAX_RETRY && input.value.trim()) {
-        scheduleNativeRender(attempt + 1);
-      }
-    }, RETRY_DELAY_MS);
-  };
-
-  const renderResults = (query) => {
-    const trimmed = (query || '').trim();
-    if (!trimmed) {
-      clearResults();
-      hidePreview();
+  const run = async () => {
+    const query = input.value.trim();
+    if (!query) {
+      lastResults = [];
+      list.replaceChildren();
+      hide();
       return;
     }
 
-    if (queryNativeSearch(trimmed)) {
-      scheduleNativeRender(0);
+    try {
+      render(searchDocs(await loadDocs(), query));
+    } catch (error) {
+      console.error(error);
+      lastResults = [];
+      showMessage('Search unavailable');
     }
   };
 
-  input.addEventListener('focus', () => renderResults(input.value));
-  input.addEventListener('input', () => renderResults(input.value));
+  input.addEventListener('input', () => {
+    window.clearTimeout(timer);
+    timer = window.setTimeout(run, 100);
+  });
 
-  landingSearch.addEventListener('submit', (event) => {
+  input.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') hide();
+  });
+
+  form.addEventListener('submit', (event) => {
     event.preventDefault();
-    const value = input.value.trim();
-    if (!value) {
-      return;
-    }
-
-    renderResults(value);
-    if (state.lastResults.length) {
-      window.location.href = state.lastResults[0].location;
+    if (lastResults[0]) {
+      window.location.assign(lastResults[0].location);
+    } else {
+      run();
     }
   });
 
   document.addEventListener('click', (event) => {
-    if (!landingSearch.contains(event.target)) {
-      hidePreview();
-    }
+    if (!form.contains(event.target)) hide();
   });
-
-  if (!window.MutationObserver) {
-    return;
-  }
-
-  const rootObserver = new MutationObserver(() => {
-    refreshNativeHandles();
-    if (state.nativeResult && !state.resultObserver) {
-      state.resultObserver = new MutationObserver(() => {
-        if (input.value.trim()) {
-          renderFromNative();
-        }
-      });
-      state.resultObserver.observe(state.nativeResult, { childList: true, subtree: true });
-    }
-  });
-  rootObserver.observe(document.documentElement, { childList: true, subtree: true });
 }

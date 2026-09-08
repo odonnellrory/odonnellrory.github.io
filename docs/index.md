@@ -1,3 +1,8 @@
+---
+hide:
+  - title
+---
+
 <div class="landing-root">
   <h1 class="landing-title">DOCUMENTATION STATION</h1>
   <section class="landing-hero">
@@ -5,20 +10,18 @@
     <div class="landing-topbar">
       <form class="landing-search" action="#" method="get" role="search" aria-label="Search docs">
         <label class="landing-search-label" for="landing-search-input">Search the docs</label>
-        <div class="landing-search-row">
-          <input
-            id="landing-search-input"
-            class="landing-search-input"
-            name="q"
-            type="search"
-            placeholder="Search Blog..."
-            autocomplete="off"
-            required
-          >
-          <button class="landing-search-button" type="submit">Search</button>
-        </div>
+        <input
+          id="landing-search-input"
+          class="landing-search-input"
+          name="q"
+          type="search"
+          placeholder="Search docs…"
+          autocomplete="off"
+          aria-controls="landing-search-results"
+          required
+        >
         <div class="landing-search-preview" hidden>
-          <ul class="landing-search-results" aria-label="Search suggestions"></ul>
+          <ul id="landing-search-results" class="landing-search-results" aria-label="Search suggestions"></ul>
         </div>
       </form>
       <div class="landing-social-row" aria-label="Social links">
